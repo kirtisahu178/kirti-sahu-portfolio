@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
@@ -7,11 +7,10 @@ import { LayeredBgLayoutComponent } from './bg-layout/layered-bg-layout/layered-
 @Component({
     selector: 'app-root',
     imports: [
-        MaterialModule,
-        CommonModule,
-        RouterModule,
-        LayeredBgLayoutComponent,
-    ],
+    MaterialModule,
+    RouterModule,
+    LayeredBgLayoutComponent
+],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

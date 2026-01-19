@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'app-publication',
-    imports: [MaterialModule, CommonModule],
+    imports: [MaterialModule],
     templateUrl: './publication.component.html',
     styleUrl: './publication.component.scss'
 })

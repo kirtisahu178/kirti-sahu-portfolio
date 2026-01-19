@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
 
 @Component({
     selector: 'app-tech',
-    imports: [MaterialModule, CommonModule],
+    imports: [MaterialModule],
     templateUrl: './tech.component.html',
     styleUrl: './tech.component.scss'
 })

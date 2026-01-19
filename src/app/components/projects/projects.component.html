@@ -1,33 +1,38 @@
 <div class="project-section">
   <h1 class="section-title">Projects</h1>
-  
-  <div class="project-card" *ngFor="let project of projects; let i = index">
-    <div class="project-image-wrapper">
-      <img [src]="project.image" [alt]="project.title" class="project-image" />
-    </div>
 
-    <div class="project-info">
-      <h1 class="project-title">{{ project.title }}</h1>
-      <p class="project-description">{{ project.description }}</p>
-      <p class="project-tech">{{ project.tech }}</p>
-
-      <div class="project-actions">
-        <a *ngIf="project.link" [href]="project.link" target="_blank" mat-stroked-button class="btn-demo">
-          Live Demo
-        </a>
-
-        <a *ngIf="project.github" [href]="project.github" target="_blank" mat-stroked-button class="btn-view-code">
-          View Code
-        </a>
-
-        <span *ngIf="project.isConfidential && !project.github" class="confidential-tag">
-          🔒 Confidential Project
-        </span>
-
-        <span *ngIf="!project.link && !project.isConfidential && !project.github" class="offline-tag">
-          🚧 In Progress / Offline
-        </span>
+  @for (project of projects; track project; let i = $index) {
+    <div class="project-card">
+      <div class="project-image-wrapper">
+        <img [src]="project.image" [alt]="project.title" class="project-image" />
+      </div>
+      <div class="project-info">
+        <h1 class="project-title">{{ project.title }}</h1>
+        <p class="project-description">{{ project.description }}</p>
+        <p class="project-tech">{{ project.tech }}</p>
+        <div class="project-actions">
+          @if (project.link) {
+            <a [href]="project.link" target="_blank" mat-stroked-button class="btn-demo">
+              Live Demo
+            </a>
+          }
+          @if (project.github) {
+            <a [href]="project.github" target="_blank" mat-stroked-button class="btn-view-code">
+              View Code
+            </a>
+          }
+          @if (project.isConfidential && !project.github) {
+            <span class="confidential-tag">
+              🔒 Confidential Project
+            </span>
+          }
+          @if (!project.link && !project.isConfidential && !project.github) {
+            <span class="offline-tag">
+              🚧 In Progress / Offline
+            </span>
+          }
+        </div>
       </div>
     </div>
-  </div>
+  }
 </div>

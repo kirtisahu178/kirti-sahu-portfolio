@@ -2,25 +2,29 @@
 
   <div class="education-section">
     <h1 class="section-title">Education</h1>
-    <div *ngFor="let edu of education; let isLast = last" class="edu-item">
-      <img [src]="edu.logo" alt="University Logo" class="edu-logo" />
-      <div class="edu-info">
-        <h3 class="university-name">{{ edu.university }}</h3>
-        <p class="degree">{{ edu.degree }}</p>
-        <p class="duration">{{ edu.duration }}</p>
+    @for (edu of education; track edu; let isLast = $last) {
+      <div class="edu-item">
+        <img [src]="edu.logo" alt="University Logo" class="edu-logo" />
+        <div class="edu-info">
+          <h3 class="university-name">{{ edu.university }}</h3>
+          <p class="degree">{{ edu.degree }}</p>
+          <p class="duration">{{ edu.duration }}</p>
+        </div>
       </div>
-    </div>
+    }
   </div>
 
   <div class="certificate-section">
     <h1 class="section-title">Certifications</h1>
-    <div *ngFor="let cert of certifications" class="cert-item">
-      <img [src]="cert.logo" alt="{{ cert.provider }}" class="cert-logo" />
-      <div class="cert-details">
-        <p class="cert-title">{{ cert.title }}</p>
-        <p class="cert-provider">{{ cert.provider }} • {{ cert.year }}</p>
-        <a [href]="cert.link" target="_blank" class="cert-link">View Certificate</a>
+    @for (cert of certifications; track cert) {
+      <div class="cert-item">
+        <img [src]="cert.logo" alt="{{ cert.provider }}" class="cert-logo" />
+        <div class="cert-details">
+          <p class="cert-title">{{ cert.title }}</p>
+          <p class="cert-provider">{{ cert.provider }} • {{ cert.year }}</p>
+          <a [href]="cert.link" target="_blank" class="cert-link">View Certificate</a>
+        </div>
       </div>
-    </div>
+    }
   </div>
 </div>

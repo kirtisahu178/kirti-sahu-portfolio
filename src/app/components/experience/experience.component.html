@@ -4,22 +4,25 @@
   <div class="experience-grid">
     <!-- Left: Experience List -->
     <div class="exp-list">
-      <div *ngFor="let exp of experiences; let i = index" class="exp-card" [ngClass]="{ even: i % 2 === 0, odd: i % 2 !== 0 }">
-        <div class="exp-header">
-          <img [src]="exp.logo" alt="{{exp.company}}" class="company-logo" />
-          <div>
-            <h3>{{ exp.company }}</h3>
-            <p class="meta">{{ exp.type }} · {{ exp.duration }}</p>
-            <p class="location">{{ exp.location }}</p>
+      @for (exp of experiences; track exp; let i = $index) {
+        <div class="exp-card" [ngClass]="{ even: i % 2 === 0, odd: i % 2 !== 0 }">
+          <div class="exp-header">
+            <img [src]="exp.logo" alt="{{exp.company}}" class="company-logo" />
+            <div>
+              <h3>{{ exp.company }}</h3>
+              <p class="meta">{{ exp.type }} · {{ exp.duration }}</p>
+              <p class="location">{{ exp.location }}</p>
+            </div>
           </div>
+          @for (role of exp.roles; track role) {
+            <div class="role-detail">
+              <h4>{{ role.title }}</h4>
+              <p class="desc">{{ role.description }}</p>
+              <!-- <p class="skills">{{ role.skills }}</p> -->
+            </div>
+          }
         </div>
-
-        <div *ngFor="let role of exp.roles" class="role-detail">
-          <h4>{{ role.title }}</h4>
-          <p class="desc">{{ role.description }}</p>
-          <!-- <p class="skills">{{ role.skills }}</p> -->
-        </div>
-      </div>
+      }
     </div>
 
     <!-- Right: Responsibilities + Tech Stack -->

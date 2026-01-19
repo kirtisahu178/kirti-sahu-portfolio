@@ -1,13 +1,14 @@
 <div class="certificate-section">
   <h1 class="section-title">Certifications</h1>
 
-  <div *ngFor="let cert of certifications" class="cert-item">
+  @for (cert of certifications; track cert) {
+    <div class="cert-item">
       <img [src]="cert.logo" alt="{{ cert.provider }}" class="cert-logo" />
-
       <div class="cert-details">
         <p class="cert-title">{{ cert.title }}</p>
         <p class="cert-provider">{{ cert.provider }} • {{ cert.year }}</p>
         <a [href]="cert.link" target="_blank" class="cert-link">View Certificate</a>
       </div>
-  </div>
+    </div>
+  }
 </div>

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
-import { CommonModule } from '@angular/common';
+
 import { CertificatesComponent } from "../certificates/certificates.component";
 import { PublicationComponent } from "../publication/publication.component";
 
 @Component({
     selector: 'app-education',
-    imports: [MaterialModule, CommonModule],
+    imports: [MaterialModule],
     templateUrl: './education.component.html',
     styleUrl: './education.component.scss'
 })

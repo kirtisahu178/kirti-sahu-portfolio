@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
-import { CommonModule } from '@angular/common';
+
 import { TechComponent } from "../tech/tech.component";
 
 // Define the structure for a skill item
@@ -13,7 +13,7 @@ interface Skill {
 
 @Component({
     selector: 'app-skills',
-    imports: [MaterialModule, CommonModule, TechComponent],
+    imports: [MaterialModule, TechComponent],
     templateUrl: './skills.component.html',
     styleUrl: './skills.component.scss'
 })
