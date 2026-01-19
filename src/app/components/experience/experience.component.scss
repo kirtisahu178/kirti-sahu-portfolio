@@ -1,0 +1,235 @@
+.experience-section {
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+
+  h1.section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0 0 2rem 0;
+
+    @media (max-width: 1024px) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 360px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 768px) {
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+      gap: 1rem;
+    }
+  }
+
+  /* Left Column */
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .exp-card {
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      .exp-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        .company-logo {
+          width: 48px;
+          height: 48px;
+          border-radius: 10px;
+          object-fit: cover;
+
+          @media (max-width: 480px) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 1.2rem;
+
+          @media (max-width: 768px) {
+            font-size: 1.1rem;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 1rem;
+          }
+        }
+
+        .meta,
+        .location {
+          font-size: 0.9rem;
+
+          @media (max-width: 480px) {
+            font-size: 0.85rem;
+          }
+
+          @media (max-width: 360px) {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .role-detail {
+        h4 {
+          margin-bottom: 0.5rem;
+          font-size: 1.1rem;
+
+          @media (max-width: 768px) {
+            font-size: 1rem;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 0.95rem;
+          }
+        }
+
+        .desc {
+          margin-bottom: 0.4rem;
+
+          @media (max-width: 480px) {
+            font-size: 0.9rem;
+          }
+
+          @media (max-width: 360px) {
+            font-size: 0.85rem;
+          }
+        }
+
+        .skills {
+          font-size: 0.9rem;
+
+          @media (max-width: 480px) {
+            font-size: 0.85rem;
+          }
+
+          @media (max-width: 360px) {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  /* Right Column */
+  .exp-side {
+    .side-card {
+      position: sticky;
+      top: 90px;
+      border-radius: 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+
+        @media (max-width: 768px) {
+          font-size: 1.1rem;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 1rem;
+        }
+
+        @media (max-width: 360px) {
+          font-size: 0.95rem;
+        }
+      }
+
+      ul {
+        padding-left: 1.2rem;
+        margin-bottom: 1.5rem;
+
+        li {
+          line-height: 1.6;
+          margin-bottom: 0.4rem;
+
+          @media (max-width: 480px) {
+            font-size: 0.9rem;
+          }
+
+          @media (max-width: 360px) {
+            font-size: 0.85rem;
+          }
+        }
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+
+        span {
+          border-radius: 20px;
+          padding: 4px 10px;
+          font-size: 0.85rem;
+
+          @media (max-width: 480px) {
+            font-size: 0.8rem;
+            padding: 3px 8px;
+          }
+
+          @media (max-width: 360px) {
+            font-size: 0.75rem;
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        position: relative;
+        top: 0;
+        padding: 1.5rem;
+      }
+
+      @media (max-width: 480px) {
+        padding: 1rem;
+      }
+    }
+  }
+
+  /* Section Padding */
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
+}

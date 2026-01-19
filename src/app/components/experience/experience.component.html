@@ -1,0 +1,52 @@
+<div class="experience-section">
+  <h1 class="section-title">Experience</h1>
+
+  <div class="experience-grid">
+    <!-- Left: Experience List -->
+    <div class="exp-list">
+      <div *ngFor="let exp of experiences; let i = index" class="exp-card" [ngClass]="{ even: i % 2 === 0, odd: i % 2 !== 0 }">
+        <div class="exp-header">
+          <img [src]="exp.logo" alt="{{exp.company}}" class="company-logo" />
+          <div>
+            <h3>{{ exp.company }}</h3>
+            <p class="meta">{{ exp.type }} · {{ exp.duration }}</p>
+            <p class="location">{{ exp.location }}</p>
+          </div>
+        </div>
+
+        <div *ngFor="let role of exp.roles" class="role-detail">
+          <h4>{{ role.title }}</h4>
+          <p class="desc">{{ role.description }}</p>
+          <!-- <p class="skills">{{ role.skills }}</p> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Responsibilities + Tech Stack -->
+    <div class="exp-side">
+      <div class="side-card">
+        <h2>Key Responsibilities</h2>
+        <ul>
+          <li>Develop dynamic web applications using Angular and Node.js</li>
+          <li>Design and maintain RESTful APIs</li>
+          <li>Collaborate with NIC and Government departments</li>
+          <li>Manage MariaDB databases and optimize queries</li>
+          <li>Implement authentication and security modules</li>
+        </ul>
+
+        <h2>Technologies I Use</h2>
+        <div class="tech-tags">
+          <span>Angular 13+</span>
+          <span>Node.js</span>
+          <span>Express.js</span>
+          <span>MariaDB</span>
+          <span>MySQl</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>TypeScript</span>
+          <span>Angular Material</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

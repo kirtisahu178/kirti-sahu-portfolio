@@ -1,0 +1,35 @@
+.glass-bg {
+  position: relative;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+/* gradient blobs */
+.glass-bg::before,
+.glass-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.6;
+}
+
+/* left side gradient */
+.glass-bg::before {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at center, #4facfe, #00f2fe);
+  top: -100px;
+  left: -100px;
+}
+
+/* right side gradient */
+.glass-bg::after {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle at center, #ff9a9e, #fad0c4);
+  bottom: -150px;
+  right: -150px;
+}

@@ -1,1 +1,799 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use "sass:map";
+@include mat.core();
+
+
+$dark-tone-map: (
+  0: 100,
+  10: 99,
+  20: 98,
+  25: 95,
+  30: 90,
+  35: 80,
+  40: 70,
+  50: 60,
+  60: 50,
+  70: 40,
+  80: 35,
+  90: 30,
+  95: 25,
+  98: 20,
+  99: 10,
+  100: 0
+);
+
+@mixin generate-theme-vars($theme, $mode: 'light') {
+  $tones: 0, 10, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 95, 98, 99, 100;
+
+  @each $tone in $tones {
+    $tone-val: if($mode =='light', $tone, map.get($dark-tone-map, $tone));
+
+    --theme-primary-#{$tone}: #{mat.get-theme-color($theme, primary, $tone-val)};
+    --theme-tertiary-#{$tone}: #{mat.get-theme-color($theme, tertiary, $tone-val)};
+  }
+}
+
+
+@mixin app-core-ui-styles() {
+  @include app-bg-style();
+  @include app-toolbar-style();
+  @include app-text-style();
+  @include app-button-style();
+  @include app-card-style();
+  @include app-icon-style();
+}
+
+@mixin app-theme-light() {
+  @include app-light-glass();
+  @include app-light-icon();
+}
+
+@mixin app-theme-dark() {
+  @include app-dark-glass();
+  @include app-dark-icon();
+}
+
+@mixin app-bg-style() {
+
+  .login-container {
+    background-color: var(--theme-primary-99);
+  }
+
+  .tl-circle1 {
+    background-color: var(--theme-primary-90);
+  }
+
+  .tl-circle2 {
+    background-color: var(--theme-primary-95);
+  }
+
+  .tl-circle3 {
+    background-color: var(--theme-primary-98);
+  }
+
+
+  .br-circle1,
+  .tl-circle1 {
+    background-color: var(--theme-primary-80);
+  }
+
+  .br-circle2,
+  .tl-circle2 {
+    background-color: var(--theme-primary-90);
+  }
+
+  .br-circle3,
+  .tl-circle3 {
+    background-color: var(--theme-primary-95);
+  }
+
+}
+
+@mixin app-toolbar-style() {
+  & {
+    // --mat-toolbar-container-background-color: var(--theme-primary-40);
+    --mat-toolbar-container-text-color: var(--theme-primary-35);
+    --mdc-icon-button-icon-color: var(--theme-primary-35);
+  }
+}
+
+@mixin app-text-style() {
+
+  .portfolio-title,
+  .name,
+  .section-title {
+    color: var(--theme-primary-40);
+  }
+
+  .portfolio-lastname,
+  .title,
+  .skill-title,
+  footer p {
+    color: var(--theme-tertiary-40);
+  }
+
+  .tagline,
+  .about-text,
+  .tech-name,
+  .university-name,
+  .cert-title,
+  .project-description {
+    color: var(--theme-primary-0);
+  }
+
+  .degree,
+  .cert-provider,
+  .duration {
+    color: var(--theme-primary-10);
+  }
+
+  .cert-link {
+    color: var(--theme-tertiary-40);
+  }
+
+  .project-title {
+    color: var(--theme-tertiary-35);
+  }
+
+  .card-title {
+    color: var(--theme-tertiary-40);
+  }
+
+  .card-content-area {
+    color: var(--theme-tertiary-10);
+  }
+
+  .project-tech {
+    color: var(--theme-primary-40);
+  }
+}
+
+@mixin app-button-style() {
+  .active-link {
+    background-color: var(--theme-primary-95);
+  }
+
+  .btn-resume {
+    background-color: var(--theme-primary-40) !important;
+    color: var(--theme-primary-100) !important;
+  }
+
+  .btn-hire {
+    border: 1px solid var(--theme-primary-40) !important;
+    color: var(--theme-primary-40) !important;
+  }
+
+  .btn-demo,
+  .btn-view-code {
+    border: 1px solid var(--theme-tertiary-35) !important;
+    color: var(--theme-tertiary-35) !important;
+  }
+
+  .confidential-tag,
+  .offline-tag {
+    border: 1px solid var(--theme-primary-40) !important;
+    color: var(--theme-primary-40) !important;
+  }
+
+}
+
+@mixin app-icon-style() {
+  .skill-icon {
+    color: var(--theme-primary-100);
+  }
+}
+
+@mixin app-light-icon() {
+
+  .toolbar-theme-section,
+  .linkedin-icon,
+  .github-icon,
+  .social-icon {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin app-dark-icon() {
+
+  .toolbar-theme-section,
+  .linkedin-icon,
+  .github-icon,
+  .social-icon {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@mixin app-card-style() {
+  .icon-card {
+    background: linear-gradient(135deg, var(--theme-tertiary-40) 0%, var(--theme-tertiary-80) 100%);
+  }
+}
+
+@mixin app-light-glass() {
+
+  .portfolio-container,
+  .mat-mdc-menu-panel {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .sticky-toolbar,
+  footer p {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+  }
+
+  .about-section,
+  .certificate-section,
+  .education-section,
+  .experience-section,
+  .publication-section,
+  .skills-section,
+  .tech-section,
+  .project-section,
+  .project-card,
+  .skill-card,
+  .exp-card {
+    backdrop-filter: blur(1px) saturate(180%);
+    -webkit-backdrop-filter: blur(1px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+  }
+
+  .skill-card {
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1),
+      0 0 0 8px rgba(255, 255, 255, 0.4) inset;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .skill-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 8px rgba(255, 255, 255, 0.4) inset;
+  }
+}
+
+@mixin app-dark-glass() {
+
+  .portfolio-container,
+  .mat-mdc-menu-panel {
+    backdrop-filter: blur(15px) saturate(100%);
+    -webkit-backdrop-filter: blur(15px) saturate(100%);
+    background-color: rgba(17, 25, 40, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  .sticky-toolbar,
+  footer p {
+    backdrop-filter: blur(15px) saturate(100%);
+    -webkit-backdrop-filter: blur(15px) saturate(100%);
+    background-color: rgba(17, 25, 40, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+
+  .about-section,
+  .certificate-section,
+  .education-section,
+  .experience-section,
+  .publication-section,
+  .skills-section,
+  .tech-section,
+  .project-section,
+  .project-card,
+  .skill-card,
+  .exp-card {
+    backdrop-filter: blur(15px) saturate(100%);
+    -webkit-backdrop-filter: blur(15px) saturate(100%);
+    background-color: rgba(17, 25, 40, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+  }
+
+  .skill-card {
+    background-color: rgba(25, 25, 25, 0.6) !important; // translucent dark base
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08); // subtle border
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.6), // deeper outer shadow
+      0 0 0 8px rgba(255, 255, 255, 0.05) inset; // inner glow ring
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .skill-card:hover {
+    box-shadow:
+      0 12px 35px rgba(0, 0, 0, 0.75),
+      0 0 0 8px rgba(255, 255, 255, 0.07) inset;
+  }
+}
+
+
+
+// 1️⃣ Base theme palette map
+$theme-palettes: (
+  new-1: (primary: mat.$red-palette, tertiary: mat.$violet-palette),
+  new-2: (primary: mat.$green-palette, tertiary: mat.$magenta-palette),
+  new-3: (primary: mat.$blue-palette, tertiary: mat.$orange-palette),
+  new-4: (primary: mat.$yellow-palette, tertiary: mat.$blue-palette),
+  new-5: (primary: mat.$cyan-palette, tertiary: mat.$rose-palette),
+  new-6: (primary: mat.$magenta-palette, tertiary: mat.$orange-palette),
+  new-7: (primary: mat.$orange-palette, tertiary: mat.$green-palette),
+  new-8: (primary: mat.$chartreuse-palette, tertiary: mat.$azure-palette),
+  new-9: (primary: mat.$spring-green-palette, tertiary: mat.$violet-palette),
+  new-10: (primary: mat.$azure-palette, tertiary: mat.$rose-palette),
+  new-11: (primary: mat.$violet-palette, tertiary: mat.$yellow-palette),
+  new-12: (primary: mat.$rose-palette, tertiary: mat.$blue-palette),
+);
+
+// 2️⃣ Function to auto-generate a theme
+@function generate-theme($name, $mode) {
+  $palette: map.get($theme-palettes, $name);
+  @return mat.define-theme((color: (theme-type: $mode,
+        primary: map.get($palette, primary),
+        tertiary: map.get($palette, tertiary))));
+}
+
+// 3️⃣ Master map to store all generated themes
+$all-themes: (
+);
+
+// 4️⃣ Auto-generate all light & dark themes
+@each $name, $palette in $theme-palettes {
+  $light-theme: generate-theme($name, light);
+  $dark-theme: generate-theme($name, dark);
+
+  // Store them in a global map
+  $all-themes: map.merge($all-themes,
+      ($name: (
+        light: $light-theme,
+        dark: $dark-theme ))
+  );
+}
+
+
+
+// $new-1-light-theme is not a variable — it’s a key inside $all-themes.
+$new-1-light-theme: map.get(map.get($all-themes, new-1), light);
+
+:root {
+  @include mat.all-component-typographies($new-1-light-theme);
+  @include mat.all-component-densities($new-1-light-theme);
+  @include mat.chips-theme($new-1-light-theme);
+  @include mat.button-theme($new-1-light-theme);
+  @include mat.datepicker-theme($new-1-light-theme);
+  @include mat.dialog-theme($new-1-light-theme);
+  @include mat.paginator-theme($new-1-light-theme);
+  @include mat.table-theme($new-1-light-theme);
+  @include mat.sort-theme($new-1-light-theme);
+  @include mat.checkbox-theme($new-1-light-theme);
+  @include mat.radio-theme($new-1-light-theme);
+  @include mat.select-theme($new-1-light-theme);
+  @include mat.expansion-theme($new-1-light-theme);
+  @include mat.list-theme($new-1-light-theme);
+  @include mat.card-theme($new-1-light-theme);
+  @include mat.divider-theme($new-1-light-theme);
+  @include mat.sidenav-theme($new-1-light-theme);
+  @include mat.toolbar-theme($new-1-light-theme);
+  @include mat.menu-theme($new-1-light-theme);
+  @include mat.icon-button-theme($new-1-light-theme);
+  @include mat.input-theme($new-1-light-theme);
+  @include mat.form-field-theme($new-1-light-theme);
+}
+
+
+// 5️⃣ Auto-generate theme classes
+@each $name, $modes in $all-themes {
+  @each $mode, $theme in $modes {
+    .#{$name}-#{$mode}-theme {
+      @include mat.all-component-colors($theme);
+      @include generate-theme-vars($theme, $mode);
+      @include app-core-ui-styles();
+
+      @if $mode ==light {
+        @include app-theme-light();
+      }
+
+      @else {
+        @include app-theme-dark();
+      }
+    }
+  }
+}
+
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* Glass Effect Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+/* Track (background of scrollbar) */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  /* match your card border-radius */
+  margin: 12px;
+  /* adds spacing so scrollbar doesn't hit the top/bottom edges */
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* Thumb (draggable handle) */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3),
+    0 0 4px rgba(255, 255, 255, 0.2);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+}
+
+/* Inactive window */
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+/* Buttons */
+.mat-raised-button,
+.mat-stroked-button {
+  border-radius: 8px !important;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.mat-raised-button:hover,
+.mat-stroked-button:hover {
+  transform: scale(1.05);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//define light themes
+// $new-1-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$red-palette, tertiary: mat.$violet-palette)));
+// $new-2-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$magenta-palette, tertiary: mat.$rose-palette)));
+// $new-3-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$blue-palette, tertiary: mat.$orange-palette)));
+// $new-4-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$orange-palette, tertiary: mat.$yellow-palette)));
+// $new-5-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$red-palette, tertiary: mat.$orange-palette)));
+// $new-6-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$spring-green-palette, tertiary: mat.$chartreuse-palette)));
+// $new-7-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$azure-palette, tertiary: mat.$blue-palette)));
+// $new-8-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$green-palette, tertiary: mat.$magenta-palette)));
+// $new-9-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$rose-palette, tertiary: mat.$blue-palette)));
+// $new-10-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$yellow-palette, tertiary: mat.$blue-palette)));
+// $new-11-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$chartreuse-palette, tertiary: mat.$azure-palette)));
+// $new-12-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$rose-palette, tertiary: mat.$cyan-palette)));
+// $new-13-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$magenta-palette, tertiary: mat.$orange-palette)));
+// $new-14-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$violet-palette, tertiary: mat.$yellow-palette)));
+
+
+
+// //define dark themes
+// $new-1-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$red-palette, tertiary: mat.$violet-palette)));
+// $new-2-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$magenta-palette, tertiary: mat.$rose-palette)));
+// $new-3-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$blue-palette, tertiary: mat.$orange-palette)));
+// $new-4-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$orange-palette, tertiary: mat.$yellow-palette)));
+// $new-5-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$red-palette, tertiary: mat.$orange-palette)));
+// $new-6-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$spring-green-palette, tertiary: mat.$chartreuse-palette)));
+// $new-7-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$azure-palette, tertiary: mat.$blue-palette)));
+// $new-8-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$green-palette, tertiary: mat.$magenta-palette)));
+// $new-9-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$rose-palette, tertiary: mat.$blue-palette)));
+// $new-10-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$yellow-palette, tertiary: mat.$blue-palette)));
+// $new-11-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$chartreuse-palette, tertiary: mat.$azure-palette)));
+// $new-12-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$rose-palette, tertiary: mat.$cyan-palette)));
+// $new-13-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$magenta-palette, tertiary: mat.$orange-palette)));
+// $new-14-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$violet-palette, tertiary: mat.$yellow-palette)));
+
+
+// $themes: (
+//   new-1: (light: $new-1-light-theme, dark: $new-1-dark-theme),
+//   new-2: (light: $new-2-light-theme, dark: $new-2-dark-theme),
+//   new-3: (light: $new-3-light-theme, dark: $new-3-dark-theme),
+//   new-4: (light: $new-4-light-theme, dark: $new-4-dark-theme),
+//   new-5: (light: $new-5-light-theme, dark: $new-5-dark-theme),
+//   new-6: (light: $new-6-light-theme, dark: $new-6-dark-theme),
+//   new-7: (light: $new-7-light-theme, dark: $new-7-dark-theme),
+//   new-8: (light: $new-8-light-theme, dark: $new-8-dark-theme),
+//   new-9: (light: $new-9-light-theme, dark: $new-9-dark-theme),
+//   new-10: (light: $new-10-light-theme, dark: $new-10-dark-theme),
+//   new-11: (light: $new-11-light-theme, dark: $new-11-dark-theme),
+//   new-12: (light: $new-12-light-theme, dark: $new-12-dark-theme),
+//   new-13: (light: $new-13-light-theme, dark: $new-13-dark-theme),
+//   new-14: (light: $new-14-light-theme, dark: $new-14-dark-theme)
+// );
+
+// @each $name, $modes in $themes {
+//   @each $mode, $theme in $modes {
+//     .#{$name}-#{$mode}-theme {
+//       @include mat.all-component-colors($theme);
+//       @include generate-theme-vars($theme, $mode);
+//       @include app-core-ui-styles();
+//       @if $mode == 'light' {
+//         @include app-theme-light();
+//       } @else {
+//         @include app-theme-dark();
+//       }
+//     }
+//   }
+// }
+
+
+
+
+// .new-11-light-theme {
+//   @include mat.all-component-colors($new-11-light-theme);
+//   @include generate-theme-vars($new-11-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-11-dark-theme {
+//   @include mat.all-component-colors($new-11-dark-theme);
+//   @include generate-theme-vars($new-11-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-12-light-theme {
+//   @include mat.all-component-colors($new-12-light-theme);
+//   @include generate-theme-vars($new-12-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-12-dark-theme {
+//   @include mat.all-component-colors($new-12-dark-theme);
+//   @include generate-theme-vars($new-12-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-13-light-theme {
+//   @include mat.all-component-colors($new-13-light-theme);
+//   @include generate-theme-vars($new-13-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-13-dark-theme {
+//   @include mat.all-component-colors($new-13-dark-theme);
+//   @include generate-theme-vars($new-13-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-14-light-theme {
+//   @include mat.all-component-colors($new-14-light-theme);
+//   @include generate-theme-vars($new-14-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-14-dark-theme {
+//   @include mat.all-component-colors($new-14-dark-theme);
+//   @include generate-theme-vars($new-14-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+
+// .new-1-light-theme {
+//   @include mat.all-component-colors($new-1-light-theme);
+//   @include generate-theme-vars($new-1-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-1-dark-theme {
+//   @include mat.all-component-colors($new-1-dark-theme);
+//   @include generate-theme-vars($new-1-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-2-light-theme {
+//   @include mat.all-component-colors($new-2-light-theme);
+//   @include generate-theme-vars($new-2-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-2-dark-theme {
+//   @include mat.all-component-colors($new-2-dark-theme);
+//   @include generate-theme-vars($new-2-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-3-light-theme {
+//   @include mat.all-component-colors($new-3-light-theme);
+//   @include generate-theme-vars($new-3-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-3-dark-theme {
+//   @include mat.all-component-colors($new-3-dark-theme);
+//   @include generate-theme-vars($new-3-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-4-light-theme {
+//   @include mat.all-component-colors($new-4-light-theme);
+//   @include generate-theme-vars($new-4-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-4-dark-theme {
+//   @include mat.all-component-colors($new-4-dark-theme);
+//   @include generate-theme-vars($new-4-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-5-light-theme {
+//   @include mat.all-component-colors($new-5-light-theme);
+//   @include generate-theme-vars($new-5-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-5-dark-theme {
+//   @include mat.all-component-colors($new-5-dark-theme);
+//   @include generate-theme-vars($new-5-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-6-light-theme {
+//   @include mat.all-component-colors($new-6-light-theme);
+//   @include generate-theme-vars($new-6-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-6-dark-theme {
+//   @include mat.all-component-colors($new-6-dark-theme);
+//   @include generate-theme-vars($new-6-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-7-light-theme {
+//   @include mat.all-component-colors($new-7-light-theme);
+//   @include generate-theme-vars($new-7-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-7-dark-theme {
+//   @include mat.all-component-colors($new-7-dark-theme);
+//   @include generate-theme-vars($new-7-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-8-light-theme {
+//   @include mat.all-component-colors($new-8-light-theme);
+//   @include generate-theme-vars($new-8-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-8-dark-theme {
+//   @include mat.all-component-colors($new-8-dark-theme);
+//   @include generate-theme-vars($new-8-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-9-light-theme {
+//   @include mat.all-component-colors($new-9-light-theme);
+//   @include generate-theme-vars($new-9-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-9-dark-theme {
+//   @include mat.all-component-colors($new-9-dark-theme);
+//   @include generate-theme-vars($new-9-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }
+
+// .new-10-light-theme {
+//   @include mat.all-component-colors($new-10-light-theme);
+//   @include generate-theme-vars($new-10-light-theme, 'light');
+//   @include app-core-ui-styles();
+//   @include app-theme-light();
+// }
+
+// .new-10-dark-theme {
+//   @include mat.all-component-colors($new-10-dark-theme);
+//   @include generate-theme-vars($new-10-dark-theme, 'dark');
+//   @include app-core-ui-styles();
+//   @include app-theme-dark();
+// }

@@ -1,0 +1,74 @@
+.certificate-section {
+  padding: 2rem;
+  border-radius: 16px;
+  height: 300px;
+
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .cert-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #ddd;
+    }
+
+    .cert-details {
+
+      .cert-title {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .cert-provider {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0.4rem;
+      }
+
+      .cert-link {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #1976d2;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* for laptop */
+@media (max-width: 1024px) {
+  
+}
+
+/* for tablet */
+@media (max-width: 768px) {
+    
+}
+
+/* for mobile */
+@media (max-width: 480px) {
+    
+}
+
+/* for very small mobiles */
+@media (max-width: 360px) {
+    
+}

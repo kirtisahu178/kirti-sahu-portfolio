@@ -1,0 +1,12 @@
+<div class="tech-section">
+  <h1 class="section-title">Tech Stack</h1>
+  
+  <div class="tech-grid">
+    <div *ngFor="let tech of techStack" class="tech-item">
+      <img [src]="tech.logo" [alt]="tech.name" />
+      <span class="tech-name">{{ tech.name }}</span>
+    </div>
+  </div>
+</div>
+
+

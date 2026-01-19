@@ -1,0 +1,10 @@
+<div class="publication-section">
+  <h1 class="section-title">Publications</h1>
+
+  <div *ngFor="let pub of publications" class="pub-item">
+      <p>Research Paper: "{{ pub.title }}"</p>
+      <p class="pub-journal">{{ pub.journal }}, {{ pub.year }}</p>
+      <p class="pub-doi">DOI: {{ pub.doi }}</p>
+      <a [href]="pub.link" target="_blank" class="pub-link">Read Paper</a>
+  </div>
+</div>

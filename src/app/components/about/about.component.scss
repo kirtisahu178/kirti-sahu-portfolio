@@ -1,0 +1,137 @@
+.about-section {
+  padding: 2rem;
+  border-radius: 16px;
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr !important;
+      text-align: center;
+    }
+  }
+
+  .photo-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .profile-pic {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+      @media (max-width: 1024px) {
+        max-width: 260px;
+      }
+
+      @media (max-width: 768px) {
+        max-width: 220px;
+      }
+
+      @media (max-width: 480px) {
+        width: 230px !important;
+        height: 230px !important;
+        border-radius: 50% !important;
+        object-fit: cover;
+        object-position: top center;
+        padding: 3px;
+      }
+
+      @media (max-width: 360px) {
+        max-width: 150px;
+      }
+    }
+  }
+
+  .info-col {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: -10px 0;
+
+      @media (max-width: 1024px) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.6rem;
+      }
+
+      @media (max-width: 360px) {
+        font-size: 1.4rem;
+      }
+    }
+
+    .about-text {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      font-size: 1rem;
+      text-align: justify;
+
+      @media (max-width: 1024px) {
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 0.95rem;
+        text-align: justify;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.9rem;
+      }
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 20px;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        border-radius: 8px !important;
+      }
+
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+
+      @media (max-width: 360px) {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+  }
+
+  /* Responsive padding for entire section */
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 360px) {
+    padding: 1rem;
+  }
+}

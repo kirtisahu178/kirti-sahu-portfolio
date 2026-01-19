@@ -1,0 +1,68 @@
+
+
+.login-container {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* // All background circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  
+}
+/* Top-left corner (scaled) */
+.tl-circle1 {
+  width: 375px;
+  height: 375px;
+  top: -150px;
+  left: -150px;
+  z-index: 3;
+}
+
+.tl-circle2 {
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  left: -200px;
+  z-index: 2;
+}
+
+.tl-circle3 {
+  width: 625px;
+  height: 625px;
+  top: -250px;
+  left: -250px;
+  z-index: 1;
+}
+
+/* Bottom-right corner (scaled) */
+.br-circle1 {
+  width: 375px;
+  height: 375px;
+  bottom: -150px;
+  right: -150px;
+  z-index: 3;
+}
+
+.br-circle2 {
+  width: 500px;
+  height: 500px;
+  bottom: -200px;
+  right: -200px;
+  z-index: 2;
+}
+
+.br-circle3 {
+  width: 625px;
+  height: 625px;
+  bottom: -250px;
+  right: -250px;
+  z-index: 1;
+}

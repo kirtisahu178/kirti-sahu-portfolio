@@ -1,0 +1,144 @@
+/* Container for Education + Certificates */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns on desktop */
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr; // laptop
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // tablet/mobile
+  }
+}
+
+/* Shared Section Styles */
+.education-section,
+.certificate-section {
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  h1.section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+
+    @media (max-width: 1024px) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2rem;
+    }
+  }
+
+  .edu-item,
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+
+      @media (max-width: 600px) {
+        width: 40px;
+        height: 40px;
+      }
+
+      &.cert-logo {
+        object-fit: contain;
+        background: #fff;
+        border: 1px solid #ddd;
+      }
+    }
+
+    .edu-info,
+    .cert-details {
+      flex: 1;
+
+      h3,
+      .cert-title {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+
+        @media (max-width: 600px) {
+          font-size: 0.95rem;
+        }
+      }
+
+      .degree,
+      .cert-provider {
+        font-size: 0.95rem;
+        margin: 0.2rem 0;
+
+        @media (max-width: 600px) {
+          font-size: 0.9rem;
+        }
+      }
+
+      .duration {
+        font-size: 0.85rem;
+        // color: #6b7280;
+
+        @media (max-width: 600px) {
+          font-size: 0.8rem;
+        }
+      }
+
+      .cert-link {
+        font-size: 0.95rem;
+        font-weight: 500;
+        // color: #1976d2;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .grid-container {
+    gap: 0.5rem;
+  }
+
+  .edu-item img,
+  .cert-item img {
+    width: 35px;
+    height: 35px;
+  }
+
+  h1.section-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .edu-item img,
+  .cert-item img {
+    width: 30px;
+    height: 30px;
+  }
+
+  h1.section-title {
+    font-size: 1.6rem;
+  }
+}

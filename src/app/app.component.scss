@@ -1,0 +1,368 @@
+.portfolio-container {
+  border-radius: 20px;
+  position: relative;
+  z-index: 100;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  overflow-y: auto;
+  padding: 1.5rem;
+  padding-bottom: 0;
+}
+
+.main-content {
+  place-items: center;
+  margin: 20px 0 0 0;
+}
+
+.sticky-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  border-radius: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .portfolio-title,
+  .portfolio-lastname {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  .navbar {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+
+      &:hover {
+        font-weight: 600;
+      }
+
+      &.active-link {
+        font-weight: 500;
+        border-radius: 50px;
+        padding: 5px 15px;
+        border: 1px solid rgba(209, 213, 219, 0.3);
+      }
+
+      mat-icon {
+        font-size: 20px;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      &.active-link mat-icon {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+
+  .toolbar-social-section,
+  .toolbar-theme-section {
+    display: flex;
+    align-items: center;
+    // gap: 10px;
+  }
+
+  .toolbar-theme-section,
+  .social-icon {
+    border-radius: 50px;
+  }
+
+  .social-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+
+    .social-icon {
+      width: 22px;
+      height: 22px;
+      padding: 7px;
+    }
+  }
+
+}
+
+.theme-preview-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+
+  .theme-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50% !important;
+    object-fit: cover;
+    object-position: top center;
+    padding: 3px;
+  }
+}
+
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 0.4rem 1rem;
+  padding: 0.6rem 0.8rem;
+  align-items: start;
+
+  .theme-item {
+    display: flex;
+    justify-content: flex-start;
+
+    .theme-button {
+      width: 100%;
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      border-radius: 20px;
+      transition: all 0.25s ease;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-1px);
+      }
+
+      .theme-preview {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        width: 100%;
+
+        .theme-icon {
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          flex-shrink: 0;
+        }
+
+        .theme-label {
+          font-size: 0.9rem;
+          font-weight: 500;
+          // color: #fff;
+          text-transform: capitalize;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .theme-button {
+        padding: 0.3rem 0.4rem;
+
+        .theme-preview {
+          gap: 0.4rem;
+
+          .theme-icon {
+            width: 24px;
+            height: 24px;
+          }
+
+          .theme-label {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      .theme-button {
+        padding: 0.25rem 0.3rem;
+
+        .theme-preview {
+          .theme-icon {
+            width: 22px;
+            height: 22px;
+          }
+
+          .theme-label {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.mat-mdc-menu-content {
+  margin: 10px;
+  padding: 8px;
+}
+
+/* 🌐 Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.95rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+  background: transparent;
+
+  p {
+    display: inline-block;
+    /* background hugs text */
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+}
+
+.hide-xs {
+  display: block;
+}
+
+.hide-gt-xs {
+  display: none;
+}
+
+/* 💻 Laptop (≤1024px) */
+@media (max-width: 1024px) {
+  .portfolio-container {
+    margin: auto 10px;
+    padding: 1.25rem;
+    padding-bottom: 0;
+  }
+
+  .sticky-toolbar {
+    padding: 0 1rem;
+
+    .portfolio-title,
+    .portfolio-lastname {
+      font-size: 2rem;
+    }
+
+    .navbar {
+      gap: 1rem;
+
+      a {
+        font-size: 0.9rem;
+      }
+    }
+
+    .social-icon-btn {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+/* 📱 Tablet (≤768px) */
+@media (max-width: 768px) {
+  .portfolio-container {
+    border-radius: 16px;
+    padding: 1rem;
+  }
+
+  .sticky-toolbar {
+    .hide-xs {
+      display: none !important;
+    }
+
+    .hide-gt-xs {
+      display: block !important;
+    }
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
+
+/* 📱 Mobile (≤480px) */
+@media (max-width: 480px) {
+  .portfolio-container {
+    padding: 0.8rem;
+    padding-bottom: 0;
+    border-radius: 12px;
+  }
+
+  .sticky-toolbar {
+
+    .portfolio-title,
+    .portfolio-lastname {
+      font-size: 1.4rem;
+    }
+
+    .toolbar-social-section,
+    .toolbar-theme-section {
+      // gap: 4px;
+      transform: scale(0.85);
+      /* shrink entire div slightly */
+    }
+
+    .toolbar-theme-section button {
+      width: 35px;
+      height: 35px;
+    }
+
+    .toolbar-theme-section .mat-icon {
+      font-size: 20px;
+    }
+
+    .social-icon-btn {
+      .social-icon {
+        padding: 5px;
+      }
+    }
+  }
+
+  footer {
+    font-size: 0.85rem;
+  }
+}
+
+/* 📱 Very small mobiles (≤360px) */
+@media (max-width: 360px) {
+  .sticky-toolbar {
+
+    .portfolio-title,
+    .portfolio-lastname {
+      font-size: 1.2rem;
+    }
+
+    .social-icon-btn {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+}

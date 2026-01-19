@@ -1,0 +1,25 @@
+<div class="skills-section">
+  <h1 class="section-title">Skills</h1>
+
+  <div class="skills-grid">
+    @for (skill of skills(); track skill.id) {
+    <div class="skill-wrapper mat-elevation-z0">
+      <div class="icon-card">
+        <mat-icon class="skill-icon">{{ skill.icon }}</mat-icon>
+
+        <mat-card class="skill-card">
+          <mat-card-header class="card-header">
+            <mat-card-title class="card-title">{{ skill.title }}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content class="card-content-area">
+            <p>{{ skill.description }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<app-tech></app-tech>
