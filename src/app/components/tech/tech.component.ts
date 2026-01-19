@@ -3,11 +3,10 @@ import { Component } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
 
 @Component({
-  selector: 'app-tech',
-  standalone: true,
-  imports: [MaterialModule, CommonModule],
-  templateUrl: './tech.component.html',
-  styleUrl: './tech.component.scss'
+    selector: 'app-tech',
+    imports: [MaterialModule, CommonModule],
+    templateUrl: './tech.component.html',
+    styleUrl: './tech.component.scss'
 })
 export class TechComponent {
 techStack = [

@@ -3,11 +3,10 @@ import { MaterialModule } from '../../material/material.module';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-certificates',
-  standalone: true,
-  imports: [MaterialModule, CommonModule],
-  templateUrl: './certificates.component.html',
-  styleUrl: './certificates.component.scss'
+    selector: 'app-certificates',
+    imports: [MaterialModule, CommonModule],
+    templateUrl: './certificates.component.html',
+    styleUrl: './certificates.component.scss'
 })
 export class CertificatesComponent {
 certifications = [

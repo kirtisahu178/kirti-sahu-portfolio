@@ -5,11 +5,10 @@ import { CertificatesComponent } from "../certificates/certificates.component";
 import { PublicationComponent } from "../publication/publication.component";
 
 @Component({
-  selector: 'app-education',
-  standalone: true,
-  imports: [MaterialModule, CommonModule],
-  templateUrl: './education.component.html',
-  styleUrl: './education.component.scss'
+    selector: 'app-education',
+    imports: [MaterialModule, CommonModule],
+    templateUrl: './education.component.html',
+    styleUrl: './education.component.scss'
 })
 export class EducationComponent {
 education = [

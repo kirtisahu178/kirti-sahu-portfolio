@@ -3,11 +3,10 @@ import { MaterialModule } from '../../material/material.module';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-experience',
-  standalone: true,
-  imports: [MaterialModule, CommonModule],
-  templateUrl: './experience.component.html',
-  styleUrl: './experience.component.scss'
+    selector: 'app-experience',
+    imports: [MaterialModule, CommonModule],
+    templateUrl: './experience.component.html',
+    styleUrl: './experience.component.scss'
 })
 export class ExperienceComponent {
 experiences = [

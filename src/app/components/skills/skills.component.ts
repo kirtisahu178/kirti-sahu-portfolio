@@ -12,11 +12,10 @@ interface Skill {
 }
 
 @Component({
-  selector: 'app-skills',
-  standalone: true,
-  imports: [MaterialModule, CommonModule, TechComponent],
-  templateUrl: './skills.component.html',
-  styleUrl: './skills.component.scss'
+    selector: 'app-skills',
+    imports: [MaterialModule, CommonModule, TechComponent],
+    templateUrl: './skills.component.html',
+    styleUrl: './skills.component.scss'
 })
 export class SkillsComponent {
 skills = signal<Skill[]>([

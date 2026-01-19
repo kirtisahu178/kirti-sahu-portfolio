@@ -5,16 +5,15 @@ import { MaterialModule } from './material/material.module';
 import { LayeredBgLayoutComponent } from './bg-layout/layered-bg-layout/layered-bg-layout.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    MaterialModule,
-    CommonModule,
-    RouterModule,
-    LayeredBgLayoutComponent,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [
+        MaterialModule,
+        CommonModule,
+        RouterModule,
+        LayeredBgLayoutComponent,
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
   readonly THEME_KEY = 'selected-theme-name';

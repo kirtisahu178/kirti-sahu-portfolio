@@ -3,11 +3,10 @@ import { MaterialModule } from '../../material/material.module';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-projects',
-  standalone: true,
-  imports: [MaterialModule, CommonModule],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+    selector: 'app-projects',
+    imports: [MaterialModule, CommonModule],
+    templateUrl: './projects.component.html',
+    styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
   projects = [
