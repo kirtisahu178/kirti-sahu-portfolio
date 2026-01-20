@@ -10,15 +10,14 @@ import { MaterialModule } from '../../material/material.module';
 })
 export class ProjectsComponent {
   projects = [
-
     {
-      title: 'Complaint Monitoring System',
-      description: 'Developed for the Chhattisgarh Government to monitor and manage complaints effectively. Used by CEO, Secretaries, HoDs, DGP, DEOs, SPs, and Commissioners as a centralized platform.',
-      tech: 'Angular 18, Angular Material, Node.js, Express.js, MariaDB',
-      link: 'https://election.cg.gov.in/cmsapp',
-      github: '', // No GitHub
-      image: 'cms.png',
-      isConfidential: true
+      title: 'Hindi PDF OCR and Data Extraction System',
+      description: 'Built an automated pipeline to extract structured data (voter roll details) from scanned Hindi PDFs. Solved the problem of non-Unicode Devanagari fonts by using OCR and regex-based parsing. Processed 90+ Assembly Constituencies with 150–200 PDFs each (~15,000+ documents). Exported clean datasets into Excel and databases for further analysis.',
+      tech: 'Node.js, Express.js, Tesseract.js, Sharp.js, Excel Export (xlsx)',
+      link: '', // Not live
+      github: 'https://github.com/kirtisahu178',
+      image: 'pdf_extracter.png',
+      isConfidential: false
     },
     {
       title: 'Kirti Sahu Portfolio',
@@ -30,13 +29,13 @@ export class ProjectsComponent {
       isConfidential: false
     },
     {
-      title: 'Hindi PDF OCR and Data Extraction System',
-      description: 'Built an automated pipeline to extract structured data (voter roll details) from scanned Hindi PDFs. Solved the problem of non-Unicode Devanagari fonts by using OCR and regex-based parsing. Processed 90+ Assembly Constituencies with 150–200 PDFs each (~15,000+ documents). Exported clean datasets into Excel and databases for further analysis.',
-      tech: 'Node.js, Express.js, Tesseract.js, Sharp.js, Excel Export (xlsx)',
-      link: '', // Not live
-      github: 'https://github.com/kirtisahu178',
-      image: 'pdf_extracter.png',
-      isConfidential: false
+      title: 'Complaint Monitoring System',
+      description: 'Developed for the Chhattisgarh Government to monitor and manage complaints effectively. Used by CEO, Secretaries, HoDs, DGP, DEOs, SPs, and Commissioners as a centralized platform.',
+      tech: 'Angular 18, Angular Material, Node.js, Express.js, MariaDB',
+      link: 'https://election.cg.gov.in/cmsapp',
+      github: '', // No GitHub
+      image: 'cms.png',
+      isConfidential: true
     },
     {
       title: 'Polling Personnel Randomization System - Web',

@@ -5,23 +5,23 @@
     <!-- Left: Experience List -->
     <div class="exp-list">
       @for (exp of experiences; track exp; let i = $index) {
-        <div class="exp-card" [ngClass]="{ even: i % 2 === 0, odd: i % 2 !== 0 }">
-          <div class="exp-header">
-            <img [src]="exp.logo" alt="{{exp.company}}" class="company-logo" />
-            <div>
-              <h3>{{ exp.company }}</h3>
-              <p class="meta">{{ exp.type }} · {{ exp.duration }}</p>
-              <p class="location">{{ exp.location }}</p>
-            </div>
+      <div class="exp-card" [ngClass]="{ even: i % 2 === 0, odd: i % 2 !== 0 }">
+        <div class="exp-header">
+          <img [src]="exp.logo" alt="{{exp.company}}" class="company-logo" />
+          <div>
+            <h3>{{ exp.company }}</h3>
+            <p class="meta">{{ exp.type }} · {{ exp.duration }}</p>
+            <p class="location">{{ exp.location }}</p>
           </div>
-          @for (role of exp.roles; track role) {
-            <div class="role-detail">
-              <h4>{{ role.title }}</h4>
-              <p class="desc">{{ role.description }}</p>
-              <!-- <p class="skills">{{ role.skills }}</p> -->
-            </div>
-          }
         </div>
+        @for (role of exp.roles; track role) {
+        <div class="role-detail">
+          <h4>{{ role.title }}</h4>
+          <p class="desc">{{ role.description }}</p>
+          <!-- <p class="skills">{{ role.skills }}</p> -->
+        </div>
+        }
+      </div>
       }
     </div>
 
@@ -39,15 +39,48 @@
 
         <h2>Technologies I Use</h2>
         <div class="tech-tags">
-          <span>Angular 13+</span>
-          <span>Node.js</span>
-          <span>Express.js</span>
-          <span>MariaDB</span>
-          <span>MySQl</span>
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>TypeScript</span>
-          <span>Angular Material</span>
+          <mat-chip-set>
+            <mat-chip>
+              <img matChipAvatar src="angular.png" alt="angular.png" />
+              Angular
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="nodejs.png" alt="nodejs.png" />
+              Node.js
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="expressjs.png" alt="expressjs.png" />
+              Express.js
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="mariadb.png" alt="mariadb.png" />
+              MariaDB
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="mysql.png" alt="mysql.png" />
+              MySQl
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="html5.png" alt="html5.png" />
+              HTML5
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="css3.png" alt="css3.png" />
+              CSS3
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="javascript.png" alt="javascript.png" />
+              JavaScript
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="typescript.png" alt="typescript.png" />
+              TypeScript
+            </mat-chip>
+            <mat-chip>
+              <img matChipAvatar src="material.png" alt="material.png" />
+              Angular Material
+            </mat-chip>
+          </mat-chip-set>
         </div>
       </div>
     </div>

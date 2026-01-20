@@ -8,42 +8,42 @@
       <nav class="navbar hide-xs">
         <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
           @if (isActive('/')) {
-            <mat-icon>home</mat-icon>
+          <mat-icon>home</mat-icon>
           }
           About
         </a>
 
         <a routerLink="/skills" routerLinkActive="active-link">
           @if (isActive('/skills')) {
-            <mat-icon>auto_awesome</mat-icon>
+          <mat-icon>auto_awesome</mat-icon>
           }
           Skills
         </a>
 
         <a routerLink="/education" routerLinkActive="active-link">
           @if (isActive('/education')) {
-            <mat-icon>school</mat-icon>
+          <mat-icon>school</mat-icon>
           }
           Education
         </a>
 
         <a routerLink="/publication" routerLinkActive="active-link">
           @if (isActive('/publication')) {
-            <mat-icon>import_contacts</mat-icon>
+          <mat-icon>import_contacts</mat-icon>
           }
           Publication
         </a>
 
         <a routerLink="/experience" routerLinkActive="active-link">
           @if (isActive('/experience')) {
-            <mat-icon>rocket_launch</mat-icon>
+          <mat-icon>rocket_launch</mat-icon>
           }
           Experience
         </a>
 
         <a routerLink="/projects" routerLinkActive="active-link">
           @if (isActive('/projects')) {
-            <mat-icon>extension</mat-icon>
+          <mat-icon>extension</mat-icon>
           }
           Projects
         </a>
@@ -118,14 +118,33 @@
     <mat-menu x-position="before" #selectTheme="matMenu">
       <div class="theme-grid">
         @for (theme of themes; track theme) {
-          <div class="theme-item">
-            <button mat-button (click)="applyTheme(theme.themeName)" class="theme-button">
-              <div class="theme-preview">
-                <img class="theme-icon" [src]="theme.icon" />
-                <span class="theme-label">{{ theme.label }}</span>
+        <div class="theme-item">
+          <button mat-button (click)="applyTheme(theme.themeName)" class="theme-button">
+            <div class="theme-preview">
+              <div class="theme-preview-icon" [ngStyle]="{
+                                        '--bg-color': isDarkMode ? theme.bgDark : theme.bgLight, 
+                                        '--tool-cont': isDarkMode ? theme.toolContDark : theme.toolContLight, 
+                                        '--mini-text': isDarkMode ? theme.miniTextDark : theme.miniTextLight, 
+                                        '--head-btn': isDarkMode ? theme.headBtnDark : theme.headBtnLight, 
+                                        '--para': isDarkMode ? '#fff' : '#333'}">
+                <div class="toolbar">
+                  <div class="mini-text">KirtiSahu</div>
+                  <!-- <div class="menu1"></div> -->
+                </div>
+                <div class="content">
+                  <div class="mimage"></div>
+                  <div class="heading1"></div>
+                  <div class="para1"></div>
+                  <div class="para2"></div>
+                  <div class="para3"></div>
+                  <div class="btn1"></div>
+                  <div class="btn2"></div>
+                </div>
               </div>
-            </button>
-          </div>
+              <span class="theme-label">{{ theme.label }}</span>
+            </div>
+          </button>
+        </div>
         }
       </div>
     </mat-menu>
@@ -135,7 +154,7 @@
     </div>
 
     <footer>
-      <p>Designed & developed with devotion 💙 — © 2025 Kirti Sahu</p>
+      <p>Designed & developed with devotion 💙 — © 2026 Kirti Sahu</p>
     </footer>
   </div>
 </app-layered-bg-layout>

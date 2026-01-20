@@ -126,9 +126,6 @@
 
 
 .theme-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(120px, 1fr));
-  gap: 0.4rem 1rem;
   padding: 0.6rem 0.8rem;
   align-items: start;
 
@@ -139,12 +136,9 @@
     .theme-button {
       width: 100%;
       text-align: left;
-      padding: 0.4rem 0.5rem;
-      border-radius: 20px;
       transition: all 0.25s ease;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
       display: flex;
+      justify-content: flex-start;
       align-items: center;
 
       &:hover {
@@ -154,23 +148,139 @@
 
       .theme-preview {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
+        justify-content: flex-start;
         gap: 0.6rem;
         width: 100%;
 
-        .theme-icon {
-          width: 26px;
-          height: 26px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 2px solid rgba(255, 255, 255, 0.3);
-          flex-shrink: 0;
+        .theme-preview-icon {
+          width: 25px;
+          height: 20px;
+          border-radius: 2px;
+          position: relative;
+          overflow: hidden;
+          background-color: var(--bg-color) !important;
+        }
+
+        .theme-preview-icon .toolbar {
+          position: absolute;
+          top: 1px;
+          left: 1px;
+          right: 1px;
+          height: 4px;
+          background-color: var(--tool-cont) !important;
+          border-radius: 50px;
+
+          display: flex;
+          align-items: center;
+          padding: 0 3px;
+          gap: 3px;
+
+          .mini-text {
+            position: absolute;
+            top: 2px;
+            left: 1px;
+            font-size: 2px;
+            font-weight: 800 !important;
+            color: var(--mini-text);
+            line-height: 1;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            font-family: "Dancing Script", cursive;
+          }
+
+          .menu1 {
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            width: 8px;
+            height: 2px;
+            background-color: #838080;
+            border-radius: 50px;
+            margin-left: auto;
+          }
+        }
+
+        .theme-preview-icon .content {
+          position: absolute;
+          top: 7px;
+          left: 1px;
+          right: 1px;
+          bottom: 1px;
+          background-color: var(--tool-cont) !important;
+          border-radius: 1px;
+
+          .mimage {
+            position: absolute;
+            top: 1px;
+            left: 2px;
+            width: 6px;
+            height: calc(100% - 3px);
+            background-color: var(--bg-color);
+            border-radius: 1px;
+          }
+
+          .heading1 {
+            position: absolute;
+            top: 2px;
+            left: 9px;
+            right: 1px;
+            height: 2px;
+            width: 10px;
+            background-color: var(--head-btn);
+          }
+
+          .para1 {
+            position: absolute;
+            top: 4.2px;
+            left: 9px;
+            right: 1px;
+            height: 1px;
+            background-color: var(--para);
+          }
+
+          .para2 {
+            position: absolute;
+            top: 5.8px;
+            left: 9px;
+            right: 1px;
+            height: 1px;
+            background-color: var(--para);
+          }
+
+          .para3 {
+            position: absolute;
+            top: 7.8px;
+            left: 9px;
+            right: 1px;
+            height: 1px;
+            width: 10px;
+            background-color: var(--para);
+          }
+
+          .btn1,
+          .btn2 {
+            position: absolute;
+            top: 9px;
+            right: 1px;
+            height: 1px;
+            width: 4px;
+            background-color: var(--head-btn);
+            border-radius: 5px;
+          }
+
+          .btn1 {
+            left: 9px;
+          }
+
+          .btn2 {
+            left: 14px;
+          }
         }
 
         .theme-label {
           font-size: 0.9rem;
           font-weight: 500;
-          // color: #fff;
           text-transform: capitalize;
           white-space: nowrap;
         }
