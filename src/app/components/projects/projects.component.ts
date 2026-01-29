@@ -15,7 +15,7 @@ export class ProjectsComponent {
       description: 'Built an automated pipeline to extract structured data (voter roll details) from scanned Hindi PDFs. Solved the problem of non-Unicode Devanagari fonts by using OCR and regex-based parsing. Processed 90+ Assembly Constituencies with 150–200 PDFs each (~15,000+ documents). Exported clean datasets into Excel and databases for further analysis.',
       tech: 'Node.js, Express.js, Tesseract.js, Sharp.js, Excel Export (xlsx)',
       link: '', // Not live
-      github: 'https://github.com/kirtisahu178',
+      github: '',
       image: 'pdf_extracter.png',
       isConfidential: false
     },
@@ -23,7 +23,7 @@ export class ProjectsComponent {
       title: 'Portfolio',
       description: 'A modern, responsive personal portfolio showcasing my projects, skills, and experience as a Software Developer, built with a modern UI and responsive design to highlight projects and technical expertise.',
       tech: 'Angular, Angular Material',
-      link: 'https://github.com/kirtisahu178',
+      link: 'https://kirti-sahu-portfolio.netlify.app/',
       github: 'https://github.com/kirtisahu178',
       image: 'portfolio.png',
       isConfidential: false
