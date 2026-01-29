@@ -22,6 +22,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 const materialComponents = [
@@ -46,7 +48,8 @@ const materialComponents = [
   MatBadgeModule,
   MatTooltipModule,
   MatSliderModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatSnackBarModule
 ];
 
 

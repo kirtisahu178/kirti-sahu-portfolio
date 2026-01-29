@@ -12,23 +12,23 @@
         <p class="project-tech">{{ project.tech }}</p>
         <div class="project-actions">
           @if (project.link) {
-            <a [href]="project.link" target="_blank" mat-stroked-button class="btn-demo">
+            <a [href]="project.link" target="_blank" mat-raised-button class="btn-demo">
               Live Demo
             </a>
           }
           @if (project.github) {
-            <a [href]="project.github" target="_blank" mat-stroked-button class="btn-view-code">
+            <a [href]="project.github" target="_blank" mat-raised-button class="btn-view-code">
               View Code
             </a>
           }
           @if (project.isConfidential && !project.github) {
             <span class="confidential-tag">
-              🔒 Confidential Project
+              Confidential Project
             </span>
           }
           @if (!project.link && !project.isConfidential && !project.github) {
             <span class="offline-tag">
-              🚧 In Progress / Offline
+              In Progress / Offline
             </span>
           }
         </div>

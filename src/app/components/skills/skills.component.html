@@ -1,8 +1,23 @@
 <div class="skills-section">
   <h1 class="section-title">Skills</h1>
 
+  <p class="section-subtitle">
+    Filter skills in real time. Powered by Angular Signals.
+  </p>
+
+  <mat-form-field appearance="outline" class="skill-search-field custom-outline custom-field-height">
+    <mat-label>Search skills</mat-label>
+    <input matInput placeholder="Search skills..." (input)="searchSkill.set($any($event.target).value)" />
+  </mat-form-field>
+
+  <p class="search-meta">
+    Showing {{ filteredSkills().length }} result(s)
+  </p>
+
+
   <div class="skills-grid">
-    @for (skill of skills(); track skill.id) {
+    <!-- @for (skill of skills(); track skill.id) { -->
+    @for (skill of filteredSkills(); track skill.id) {
     <div class="skill-wrapper mat-elevation-z0">
       <div class="icon-card">
         <mat-icon class="skill-icon">{{ skill.icon }}</mat-icon>

@@ -1,7 +1,7 @@
 <div class="certificate-section">
   <h1 class="section-title">Certifications</h1>
 
-  @for (cert of certifications; track cert) {
+  @for (cert of certifications; track cert.link) {
     <div class="cert-item">
       <img [src]="cert.logo" alt="{{ cert.provider }}" class="cert-logo" />
       <div class="cert-details">

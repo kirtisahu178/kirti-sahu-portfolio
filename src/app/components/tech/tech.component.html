@@ -2,7 +2,7 @@
   <h1 class="section-title">Tech Stack</h1>
 
   <div class="tech-grid">
-    @for (tech of techStack; track tech) {
+    @for (tech of techStack; track tech.name) {
       <div class="tech-item">
         <img [src]="tech.logo" [alt]="tech.name" />
         <span class="tech-name">{{ tech.name }}</span>

@@ -1,20 +1,22 @@
 
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
 import { LayeredBgLayoutComponent } from './bg-layout/layered-bg-layout/layered-bg-layout.component';
 import { CommonModule } from '@angular/common';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+
 
 @Component({
-    selector: 'app-root',
-    imports: [
+  selector: 'app-root',
+  imports: [
     MaterialModule,
     RouterModule,
     LayeredBgLayoutComponent,
-    CommonModule
-],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+    CommonModule, NgxUiLoaderModule
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   readonly THEME_KEY = 'selected-theme-name';
@@ -22,12 +24,8 @@ export class AppComponent {
   readonly allowedThemes = ['new-1', 'new-2', 'new-3', 'new-4', 'new-5', 'new-6', 'new-7', 'new-8', 'new-9', 'new-10', 'new-11', 'new-12'];
   selectedBaseTheme: string = 'new-11';
   isDarkMode: boolean = false;
-
   showMobileMenu = false;
-
-  toggleMobileMenu() {
-    this.showMobileMenu = !this.showMobileMenu;
-  }
+  @HostListener('document:mousemove', ['$event'])
 
   themes = [
     {
@@ -177,6 +175,34 @@ export class AppComponent {
   ];
 
   constructor(private router: Router) { }
+
+  onMouseMove(event: MouseEvent) {
+    if (window.innerWidth < 768) return; // disable on mobile
+
+    const container = document.getElementById('particle-layer');
+    if (!container) return;
+
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+
+    const size = Math.random() * 6 + 4;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    particle.style.left = `${event.clientX}px`;
+    particle.style.top = `${event.clientY}px`;
+
+    container.appendChild(particle);
+
+    setTimeout(() => {
+      particle.remove();
+    }, 700);
+  }
+
+
+  toggleMobileMenu() {
+    this.showMobileMenu = !this.showMobileMenu;
+  }
 
   isActive(route: string): boolean {
     return this.router.url === route;

@@ -36,58 +36,23 @@ $dark-tone-map: (
 
 
 @mixin app-core-ui-styles() {
-  @include app-bg-style();
   @include app-toolbar-style();
   @include app-text-style();
   @include app-button-style();
   @include app-card-style();
-  @include app-icon-style();
+  @include app-select-panel-style();
 }
 
 @mixin app-theme-light() {
   @include app-light-glass();
   @include app-light-icon();
+  @include app-sub-text-style(#444, #555, #666, #888, #2c2c2c);
 }
 
 @mixin app-theme-dark() {
   @include app-dark-glass();
   @include app-dark-icon();
-}
-
-@mixin app-bg-style() {
-
-  .login-container {
-    background-color: var(--theme-primary-99);
-  }
-
-  .tl-circle1 {
-    background-color: var(--theme-primary-90);
-  }
-
-  .tl-circle2 {
-    background-color: var(--theme-primary-95);
-  }
-
-  .tl-circle3 {
-    background-color: var(--theme-primary-98);
-  }
-
-
-  .br-circle1,
-  .tl-circle1 {
-    background-color: var(--theme-primary-80);
-  }
-
-  .br-circle2,
-  .tl-circle2 {
-    background-color: var(--theme-primary-90);
-  }
-
-  .br-circle3,
-  .tl-circle3 {
-    background-color: var(--theme-primary-95);
-  }
-
+  @include app-sub-text-style(#999999, #AAAAAA, #BBBBBB, #CCCCCC, #E0E0E0);
 }
 
 @mixin app-toolbar-style() {
@@ -98,12 +63,73 @@ $dark-tone-map: (
   }
 }
 
+
+@mixin app-select-panel-style() {
+  div.mat-mdc-select-panel {
+    background-color: var(--theme-primary-95);
+  }
+
+  .mat-mdc-option.mat-mdc-option-active.mdc-list-item,
+  .mat-mdc-option.mdc-list-item:hover {
+    background-color: var(--theme-primary-90);
+  }
+
+  .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple) {
+    background-color: var(--theme-primary-90);
+  }
+
+  .mat-mdc-option .mdc-list-item__primary-text,
+  .mdc-list-item__primary-text:hover {
+    color: var(--theme-primary-35) !important;
+  }
+}
+
+@mixin app-sub-text-style($color1, $color2, $color3, $color4, $color5) {
+
+  .open-list {
+    li {
+      color: $color5;
+    }
+  }
+
+  .cert-provider,
+  .pub-doi,
+  .pub-journal,
+  .contact-intro,
+  .personal-note {
+    color: $color2;
+  }
+
+  .contact-alt,
+  .response-time {
+    p {
+      color: $color3;
+    }
+  }
+
+  .form-helper {
+    color: $color4;
+  }
+
+  .contact-card {
+
+    .contact-link,
+    .location {
+      color: $color5;
+    }
+  }
+}
+
 @mixin app-text-style() {
 
   .portfolio-title,
   .name,
   .section-title {
     color: var(--theme-primary-40);
+  }
+
+  .role-title {
+    color: var(--theme-primary-35);
   }
 
   .portfolio-lastname,
@@ -116,9 +142,11 @@ $dark-tone-map: (
   .tagline,
   .about-text,
   .tech-name,
-  .university-name,
-  .cert-title,
-  .project-description {
+  .project-description,
+  .company-meta,
+  .company-location,
+  .role-desc,
+  .res-list {
     color: var(--theme-primary-0);
   }
 
@@ -132,7 +160,15 @@ $dark-tone-map: (
     color: var(--theme-tertiary-40);
   }
 
-  .project-title {
+  .side-title,
+  .university-name,
+  .cert-title,
+  .pub-title,
+  .project-title,
+  .project-tech,
+  .company-name,
+  .res-title,
+  .tech-title {
     color: var(--theme-tertiary-35);
   }
 
@@ -144,16 +180,26 @@ $dark-tone-map: (
     color: var(--theme-tertiary-10);
   }
 
-  .project-tech {
-    color: var(--theme-primary-40);
-  }
 }
 
 @mixin app-button-style() {
-  .active-link {
+  .navbar .active-link {
     background-color: var(--theme-primary-95);
   }
 
+  .nav-menu-item.active-link {
+    background-color: var(--theme-primary-95);
+  }
+
+  .nav-menu-item {
+    color: var(--theme-primary-35) !important;
+
+    .nav-menu-icon {
+      color: var(--theme-primary-35);
+    }
+  }
+
+  .btn-send,
   .btn-resume {
     background-color: var(--theme-primary-40) !important;
     color: var(--theme-primary-100) !important;
@@ -166,8 +212,8 @@ $dark-tone-map: (
 
   .btn-demo,
   .btn-view-code {
-    border: 1px solid var(--theme-primary-35) !important;
-    color: var(--theme-primary-35) !important;
+    background-color: var(--theme-primary-40) !important;
+    color: var(--theme-primary-100) !important;
   }
 
   .confidential-tag,
@@ -176,12 +222,6 @@ $dark-tone-map: (
     color: var(--theme-primary-40) !important;
   }
 
-}
-
-@mixin app-icon-style() {
-  .skill-icon {
-    color: var(--theme-primary-100);
-  }
 }
 
 @mixin app-light-icon() {
@@ -220,7 +260,6 @@ $dark-tone-map: (
 
 @mixin app-light-glass() {
 
-
   .portfolio-container,
   .mat-mdc-menu-panel {
     background: rgba(255, 255, 255, 0.2);
@@ -247,8 +286,10 @@ $dark-tone-map: (
   .skills-section,
   .tech-section,
   .project-section,
+  .contact-section,
   .project-card,
-  .exp-card {
+  .experience-card,
+  .responsibility-card {
     backdrop-filter: blur(1px) saturate(180%);
     -webkit-backdrop-filter: blur(1px) saturate(180%);
     background-color: rgba(255, 255, 255, 0);
@@ -270,6 +311,25 @@ $dark-tone-map: (
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15),
       0 0 0 8px rgba(255, 255, 255, 0.4) inset;
   }
+
+  @media (max-width: 768px) {
+
+    .about-section,
+    .certificate-section,
+    .education-section,
+    .experience-section,
+    .publication-section,
+    .skills-section,
+    .tech-section,
+    .project-section,
+    .contact-section,
+    .side-card {
+      backdrop-filter: blur(8px) saturate(180%);
+      -webkit-backdrop-filter: blur(8px) saturate(180%);
+      background-color: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(209, 213, 219, 0.3);
+    }
+  }
 }
 
 @mixin app-dark-glass() {
@@ -289,6 +349,7 @@ $dark-tone-map: (
     -webkit-backdrop-filter: blur(15px) saturate(100%);
     background-color: rgba(17, 25, 40, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 12px;
   }
 
   .about-section,
@@ -299,8 +360,10 @@ $dark-tone-map: (
   .skills-section,
   .tech-section,
   .project-section,
+  .contact-section,
   .project-card,
-  .exp-card {
+  .experience-card,
+  .responsibility-card {
     backdrop-filter: blur(15px) saturate(100%);
     -webkit-backdrop-filter: blur(15px) saturate(100%);
     background-color: rgba(17, 25, 40, 0.15);
@@ -324,6 +387,15 @@ $dark-tone-map: (
     box-shadow:
       0 12px 35px rgba(0, 0, 0, 0.75),
       0 0 0 8px rgba(255, 255, 255, 0.07) inset;
+  }
+
+  @media (max-width: 768px) {
+    .side-card {
+      backdrop-filter: blur(8px) saturate(180%);
+      -webkit-backdrop-filter: blur(8px) saturate(180%);
+      background-color: rgba(17, 25, 40, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.125);
+    }
   }
 }
 
@@ -430,27 +502,28 @@ body {
 
 body {
   font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   margin: 0;
 }
 
-/* Glass Effect Scrollbar */
+.section-title {
+  font-family: 'Playfair Display', serif;
+}
+
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 10px;
 }
 
-/* Track (background of scrollbar) */
 ::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(6px);
   border-radius: 20px;
-  /* match your card border-radius */
   margin: 12px;
-  /* adds spacing so scrollbar doesn't hit the top/bottom edges */
   box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.2);
 }
 
-/* Thumb (draggable handle) */
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
@@ -460,26 +533,17 @@ body {
   transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-/* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(12px);
 }
 
-/* Inactive window */
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(4px);
 }
 
 
-h1,
-h2,
-h3 {
-  font-weight: 600;
-}
-
-/* Buttons */
 .mat-raised-button,
 .mat-stroked-button {
   border-radius: 8px !important;
@@ -500,304 +564,31 @@ a {
   color: inherit;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//define light themes
-// $new-1-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$red-palette, tertiary: mat.$violet-palette)));
-// $new-2-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$magenta-palette, tertiary: mat.$rose-palette)));
-// $new-3-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$blue-palette, tertiary: mat.$orange-palette)));
-// $new-4-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$orange-palette, tertiary: mat.$yellow-palette)));
-// $new-5-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$red-palette, tertiary: mat.$orange-palette)));
-// $new-6-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$spring-green-palette, tertiary: mat.$chartreuse-palette)));
-// $new-7-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$azure-palette, tertiary: mat.$blue-palette)));
-// $new-8-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$green-palette, tertiary: mat.$magenta-palette)));
-// $new-9-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$rose-palette, tertiary: mat.$blue-palette)));
-// $new-10-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$yellow-palette, tertiary: mat.$blue-palette)));
-// $new-11-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$chartreuse-palette, tertiary: mat.$azure-palette)));
-// $new-12-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$rose-palette, tertiary: mat.$cyan-palette)));
-// $new-13-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$magenta-palette, tertiary: mat.$orange-palette)));
-// $new-14-light-theme: mat.define-theme((color: (theme-type: light, primary: mat.$violet-palette, tertiary: mat.$yellow-palette)));
-
-
-
-// //define dark themes
-// $new-1-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$red-palette, tertiary: mat.$violet-palette)));
-// $new-2-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$magenta-palette, tertiary: mat.$rose-palette)));
-// $new-3-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$blue-palette, tertiary: mat.$orange-palette)));
-// $new-4-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$orange-palette, tertiary: mat.$yellow-palette)));
-// $new-5-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$red-palette, tertiary: mat.$orange-palette)));
-// $new-6-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$spring-green-palette, tertiary: mat.$chartreuse-palette)));
-// $new-7-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$azure-palette, tertiary: mat.$blue-palette)));
-// $new-8-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$green-palette, tertiary: mat.$magenta-palette)));
-// $new-9-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$rose-palette, tertiary: mat.$blue-palette)));
-// $new-10-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$yellow-palette, tertiary: mat.$blue-palette)));
-// $new-11-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$chartreuse-palette, tertiary: mat.$azure-palette)));
-// $new-12-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$rose-palette, tertiary: mat.$cyan-palette)));
-// $new-13-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$magenta-palette, tertiary: mat.$orange-palette)));
-// $new-14-dark-theme: mat.define-theme((color: (theme-type: dark, primary: mat.$violet-palette, tertiary: mat.$yellow-palette)));
-
-
-// $themes: (
-//   new-1: (light: $new-1-light-theme, dark: $new-1-dark-theme),
-//   new-2: (light: $new-2-light-theme, dark: $new-2-dark-theme),
-//   new-3: (light: $new-3-light-theme, dark: $new-3-dark-theme),
-//   new-4: (light: $new-4-light-theme, dark: $new-4-dark-theme),
-//   new-5: (light: $new-5-light-theme, dark: $new-5-dark-theme),
-//   new-6: (light: $new-6-light-theme, dark: $new-6-dark-theme),
-//   new-7: (light: $new-7-light-theme, dark: $new-7-dark-theme),
-//   new-8: (light: $new-8-light-theme, dark: $new-8-dark-theme),
-//   new-9: (light: $new-9-light-theme, dark: $new-9-dark-theme),
-//   new-10: (light: $new-10-light-theme, dark: $new-10-dark-theme),
-//   new-11: (light: $new-11-light-theme, dark: $new-11-dark-theme),
-//   new-12: (light: $new-12-light-theme, dark: $new-12-dark-theme),
-//   new-13: (light: $new-13-light-theme, dark: $new-13-dark-theme),
-//   new-14: (light: $new-14-light-theme, dark: $new-14-dark-theme)
-// );
-
-// @each $name, $modes in $themes {
-//   @each $mode, $theme in $modes {
-//     .#{$name}-#{$mode}-theme {
-//       @include mat.all-component-colors($theme);
-//       @include generate-theme-vars($theme, $mode);
-//       @include app-core-ui-styles();
-//       @if $mode == 'light' {
-//         @include app-theme-light();
-//       } @else {
-//         @include app-theme-dark();
-//       }
-//     }
-//   }
-// }
-
-
-
-
-// .new-11-light-theme {
-//   @include mat.all-component-colors($new-11-light-theme);
-//   @include generate-theme-vars($new-11-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-11-dark-theme {
-//   @include mat.all-component-colors($new-11-dark-theme);
-//   @include generate-theme-vars($new-11-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-12-light-theme {
-//   @include mat.all-component-colors($new-12-light-theme);
-//   @include generate-theme-vars($new-12-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-12-dark-theme {
-//   @include mat.all-component-colors($new-12-dark-theme);
-//   @include generate-theme-vars($new-12-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-13-light-theme {
-//   @include mat.all-component-colors($new-13-light-theme);
-//   @include generate-theme-vars($new-13-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-13-dark-theme {
-//   @include mat.all-component-colors($new-13-dark-theme);
-//   @include generate-theme-vars($new-13-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-14-light-theme {
-//   @include mat.all-component-colors($new-14-light-theme);
-//   @include generate-theme-vars($new-14-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-14-dark-theme {
-//   @include mat.all-component-colors($new-14-dark-theme);
-//   @include generate-theme-vars($new-14-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-
-// .new-1-light-theme {
-//   @include mat.all-component-colors($new-1-light-theme);
-//   @include generate-theme-vars($new-1-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-1-dark-theme {
-//   @include mat.all-component-colors($new-1-dark-theme);
-//   @include generate-theme-vars($new-1-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-2-light-theme {
-//   @include mat.all-component-colors($new-2-light-theme);
-//   @include generate-theme-vars($new-2-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-2-dark-theme {
-//   @include mat.all-component-colors($new-2-dark-theme);
-//   @include generate-theme-vars($new-2-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-3-light-theme {
-//   @include mat.all-component-colors($new-3-light-theme);
-//   @include generate-theme-vars($new-3-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-3-dark-theme {
-//   @include mat.all-component-colors($new-3-dark-theme);
-//   @include generate-theme-vars($new-3-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-4-light-theme {
-//   @include mat.all-component-colors($new-4-light-theme);
-//   @include generate-theme-vars($new-4-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-4-dark-theme {
-//   @include mat.all-component-colors($new-4-dark-theme);
-//   @include generate-theme-vars($new-4-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-5-light-theme {
-//   @include mat.all-component-colors($new-5-light-theme);
-//   @include generate-theme-vars($new-5-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-5-dark-theme {
-//   @include mat.all-component-colors($new-5-dark-theme);
-//   @include generate-theme-vars($new-5-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-6-light-theme {
-//   @include mat.all-component-colors($new-6-light-theme);
-//   @include generate-theme-vars($new-6-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-6-dark-theme {
-//   @include mat.all-component-colors($new-6-dark-theme);
-//   @include generate-theme-vars($new-6-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-7-light-theme {
-//   @include mat.all-component-colors($new-7-light-theme);
-//   @include generate-theme-vars($new-7-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-7-dark-theme {
-//   @include mat.all-component-colors($new-7-dark-theme);
-//   @include generate-theme-vars($new-7-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-8-light-theme {
-//   @include mat.all-component-colors($new-8-light-theme);
-//   @include generate-theme-vars($new-8-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-8-dark-theme {
-//   @include mat.all-component-colors($new-8-dark-theme);
-//   @include generate-theme-vars($new-8-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-9-light-theme {
-//   @include mat.all-component-colors($new-9-light-theme);
-//   @include generate-theme-vars($new-9-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-9-dark-theme {
-//   @include mat.all-component-colors($new-9-dark-theme);
-//   @include generate-theme-vars($new-9-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
-
-// .new-10-light-theme {
-//   @include mat.all-component-colors($new-10-light-theme);
-//   @include generate-theme-vars($new-10-light-theme, 'light');
-//   @include app-core-ui-styles();
-//   @include app-theme-light();
-// }
-
-// .new-10-dark-theme {
-//   @include mat.all-component-colors($new-10-dark-theme);
-//   @include generate-theme-vars($new-10-dark-theme, 'dark');
-//   @include app-core-ui-styles();
-//   @include app-theme-dark();
-// }
+#particle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--theme-primary-35); // solid color from theme
+  opacity: 0.8; // makes it soft
+  animation: fadeOut 700ms ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

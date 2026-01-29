@@ -1,0 +1,140 @@
+<div class="contact-section">
+    <h1 class="section-title">Let’s Connect</h1>
+
+    <div class="form-grid">
+        <form [formGroup]="contactForm">
+
+            <p class="contact-intro">
+                Have an opportunity, a project idea, or feedback to share?
+                I’d love to hear from you.
+            </p>
+
+            <mat-form-field appearance="outline" floatLabel="always"
+                class="full-width custom-outline custom-field-height">
+                <mat-label>Full Name</mat-label>
+                <input matInput formControlName="ctrl_txt_name" />
+
+                @if (contactForm.get('ctrl_txt_name')?.touched && contactForm.controls['ctrl_txt_name'].errors?.['required']) {
+                    <mat-error>
+                        Full name is required.
+                    </mat-error>
+                }
+
+                @if (contactForm.get('ctrl_txt_name')?.touched && contactForm.controls['ctrl_txt_name'].errors?.['minlength']) {
+                    <mat-error>
+                        Full name must be at least 2 characters.
+                    </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" floatLabel="always"
+                class="full-width custom-outline custom-field-height">
+                <mat-label>Email Address</mat-label>
+                <input matInput type="email" formControlName="ctrl_txt_email" />
+
+                @if (contactForm.get('ctrl_txt_email')?.touched && contactForm.controls['ctrl_txt_email'].errors?.['required']) {
+                    <mat-error>
+                        Email address is required
+                    </mat-error>
+                }
+
+                @if (contactForm.get('ctrl_txt_email')?.touched && contactForm.get('ctrl_txt_email')?.hasError('email')) {
+                    <mat-error>
+                        Please enter a valid email address
+                    </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" floatLabel="always"
+                class="full-width custom-outline custom-field-height">
+                <mat-label>Subject</mat-label>
+                <mat-select formControlName="ctrl_ddl_subject">
+                    @for (subject of subjects; track subject) {
+                    <mat-option [value]="subject">
+                        {{ subject }}
+                    </mat-option>
+                    }
+                </mat-select>
+                @if (contactForm.get('ctrl_ddl_subject')?.touched && contactForm.controls['ctrl_ddl_subject'].errors?.['required']) {
+                    <mat-error>
+                        Please select a subject
+                    </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" floatLabel="always"
+                class="full-width custom-outline custom-field-height">
+                <mat-label>Message</mat-label>
+                <textarea matInput rows="5" formControlName="ctrl_txt_message"></textarea>
+
+                @if (contactForm.get('ctrl_txt_message')?.touched && contactForm.controls['ctrl_txt_message'].errors?.['required']) {
+                    <mat-error>
+                        Message is required
+                    </mat-error>
+                }
+
+                @if (contactForm.get('ctrl_txt_message')?.touched && contactForm.get('ctrl_txt_message')?.hasError('minlength')) {
+                    <mat-error>
+                        Message must be at least 10 characters long
+                    </mat-error>
+                }
+            </mat-form-field>
+
+            <button mat-raised-button type="submit" class="btn-send full-width" (click)="submitForm()">
+                Send Message
+            </button>
+
+            <p class="form-helper">
+                I usually respond within 24–48 hours.
+            </p>
+        </form>
+
+        <aside class="contact-side">
+
+            <div class="side-card contact-card">
+                <h3 class="side-title">Prefer another way?</h3>
+
+                <a href="mailto:kirtisahu178@gmail.com" (click)="copyEmail()" class="contact-link">
+                    <mat-icon>mail</mat-icon>
+                    <span>kirtisahu178@gmail.com</span>
+                </a>
+
+                <a href="https://linkedin.com/in/kirti-sahu-355a681b7" target="_blank" class="contact-link">
+                    <mat-icon>work</mat-icon>
+                    <span>LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/kirtisahu178" target="_blank" class="contact-link">
+                    <mat-icon>code</mat-icon>
+                    <span>GitHub</span>
+                </a>
+
+                <div class="location">
+                    <mat-icon>location_on</mat-icon>
+                    <span>Chhattisgarh, India</span>
+                </div>
+            </div>
+
+            <div class="side-card open-to-card">
+                <h3 class="side-title">Currently open to</h3>
+
+                <ul class="open-list">
+                    <li>Full-time opportunities</li>
+                    <li>Freelance & contract work</li>
+                    <li>Project collaborations</li>
+                    <li>Product feedback & networking</li>
+                </ul>
+            </div>
+
+            <div class="personal-note">
+                <p>
+                    I enjoy working on thoughtful products and meaningful problems.
+                    If your idea values clarity and care, we’ll get along well.
+                </p>
+            </div>
+        </aside>
+
+    </div>
+
+</div>
+

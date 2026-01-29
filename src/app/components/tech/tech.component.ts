@@ -10,7 +10,7 @@ import { MaterialModule } from '../../material/material.module';
 })
 export class TechComponent {
 techStack = [
-    { name: 'Angular 13+', logo: 'angular.png' },
+    { name: 'Angular', logo: 'angular.png' },
     { name: 'Node.js', logo: 'nodejs.png' },
     { name: 'Express.js', logo: 'expressjs.png' },
     { name: 'HTML5', logo: 'html5.png' },
@@ -24,6 +24,7 @@ techStack = [
     { name: 'GitHub', logo: 'github.png' },
     { name: 'MariaDB', logo: 'mariadb.png' },
     { name: 'MySQL', logo: 'mysql.png' },
+    { name: 'MSSQL', logo: 'mssql-removebg-preview.png' },
   ];
 
 }

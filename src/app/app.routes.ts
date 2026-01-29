@@ -5,6 +5,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { PublicationComponent } from './components/publication/publication.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 export const routes: Routes = [
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'experience', component: ExperienceComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'publication', component: PublicationComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: '' } // fallback
 ];

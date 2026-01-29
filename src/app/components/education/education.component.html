@@ -4,7 +4,7 @@
     <h1 class="section-title">Education</h1>
     @for (edu of education; track edu; let isLast = $last) {
       <div class="edu-item">
-        <img [src]="edu.logo" alt="University Logo" class="edu-logo" />
+        <img [src]="edu.logo" class="edu-logo" alt="University Logo" />
         <div class="edu-info">
           <h3 class="university-name">{{ edu.university }}</h3>
           <p class="degree">{{ edu.degree }}</p>
@@ -14,17 +14,5 @@
     }
   </div>
 
-  <div class="certificate-section">
-    <h1 class="section-title">Certifications</h1>
-    @for (cert of certifications; track cert) {
-      <div class="cert-item">
-        <img [src]="cert.logo" alt="{{ cert.provider }}" class="cert-logo" />
-        <div class="cert-details">
-          <p class="cert-title">{{ cert.title }}</p>
-          <p class="cert-provider">{{ cert.provider }} • {{ cert.year }}</p>
-          <a [href]="cert.link" target="_blank" class="cert-link">View Certificate</a>
-        </div>
-      </div>
-    }
-  </div>
+  <app-certificates></app-certificates>
 </div>

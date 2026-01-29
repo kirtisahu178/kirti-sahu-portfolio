@@ -1,6 +1,6 @@
 
 
-.login-container {
+.layered-container {
   position: relative;
   width: 100vw;
   min-height: 100vh; 
@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: var(--theme-primary-100);
 }
 
 /* // All background circles */
@@ -24,6 +25,7 @@
   top: -150px;
   left: -150px;
   z-index: 3;
+  background-color: var(--theme-primary-80);
 }
 
 .tl-circle2 {
@@ -32,6 +34,7 @@
   top: -200px;
   left: -200px;
   z-index: 2;
+  background-color: var(--theme-primary-90);
 }
 
 .tl-circle3 {
@@ -40,6 +43,7 @@
   top: -250px;
   left: -250px;
   z-index: 1;
+  background-color: var(--theme-primary-95);
 }
 
 /* Bottom-right corner (scaled) */
@@ -49,6 +53,7 @@
   bottom: -150px;
   right: -150px;
   z-index: 3;
+  background-color: var(--theme-primary-80);
 }
 
 .br-circle2 {
@@ -57,6 +62,7 @@
   bottom: -200px;
   right: -200px;
   z-index: 2;
+  background-color: var(--theme-primary-90);
 }
 
 .br-circle3 {
@@ -65,4 +71,5 @@
   bottom: -250px;
   right: -250px;
   z-index: 1;
+  background-color: var(--theme-primary-95);
 }

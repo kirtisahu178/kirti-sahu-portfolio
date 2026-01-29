@@ -9,12 +9,13 @@
     align-items: center;
 
     @media (max-width: 1024px) {
-      grid-template-columns: 1fr 1.2fr;
+      // grid-template-columns: 1fr 1.2fr;
       gap: 1.5rem;
     }
 
     @media (max-width: 768px) {
-      text-align: center;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.5rem;
     }
 
     @media (max-width: 480px) {
@@ -60,10 +61,14 @@
   }
 
   .info-col {
-    h1 {
+
+    h1.name,
+    h1.title {
       font-size: 3.5rem;
       font-weight: 800;
       margin: -10px 0;
+      font-family: "Playfair Display", serif;
+
 
       @media (max-width: 1024px) {
         font-size: 2.5rem;
@@ -116,7 +121,6 @@
       }
 
       @media (max-width: 768px) {
-        justify-content: center;
       }
 
       @media (max-width: 360px) {
@@ -126,7 +130,6 @@
     }
   }
 
-  /* Responsive padding for entire section */
   @media (max-width: 480px) {
     padding: 1.5rem;
   }

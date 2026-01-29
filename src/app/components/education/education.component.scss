@@ -1,144 +1,95 @@
-/* Container for Education + Certificates */
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 columns on desktop */
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-bottom: 1rem;
 
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr; // laptop
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr; // tablet/mobile
-  }
+  @media (max-width: 1024px) { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+  @media (max-width: 480px) { gap: 0.5rem; }
 }
 
-/* Shared Section Styles */
-.education-section,
-.certificate-section {
-  padding: 2rem;
+.education-section {
+  padding: 1.5rem;
   border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 
+  /* Section Title */
   h1.section-title {
     font-size: 3.5rem;
     font-weight: 800;
-    margin: 0;
+    margin: 0 0 2rem 0;
 
-    @media (max-width: 1024px) {
-      font-size: 3rem;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 2.5rem;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 2rem;
-    }
+    @media (max-width: 1024px) { font-size: 3rem; }
+    @media (max-width: 768px) { font-size: 2.5rem; margin-bottom: 1.5rem; }
+    @media (max-width: 480px) { font-size: 2rem; margin-bottom: 1rem; }
+    @media (max-width: 360px) { font-size: 1.8rem; }
   }
 
-  .edu-item,
-  .cert-item {
+  .edu-item {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     margin-top: 1rem;
 
-    img {
+    img.edu-logo {
       width: 50px;
       height: 50px;
       object-fit: cover;
       border-radius: 6px;
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
+      background: #fff;
+      border: 1px solid #ddd;
 
-      @media (max-width: 600px) {
-        width: 40px;
-        height: 40px;
-      }
-
-      &.cert-logo {
-        object-fit: contain;
-        background: #fff;
-        border: 1px solid #ddd;
-      }
+      @media (max-width: 600px) { width: 40px; height: 40px; }
+      @media (max-width: 480px) { width: 35px; height: 35px; }
+      @media (max-width: 360px) { width: 30px; height: 30px; }
     }
 
-    .edu-info,
-    .cert-details {
+    .edu-info {
       flex: 1;
 
-      h3,
-      .cert-title {
+      h3.university-name {
         margin: 0;
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: 600;
 
-        @media (max-width: 600px) {
-          font-size: 0.95rem;
-        }
+        @media (max-width: 1024px) { font-size: 1.1rem; }
+        @media (max-width: 768px) { font-size: 1rem; }
+        @media (max-width: 480px) { font-size: 0.95rem; }
+        @media (max-width: 360px) { font-size: 0.9rem; }
       }
 
-      .degree,
-      .cert-provider {
-        font-size: 0.95rem;
+      .degree {
+        font-size: 1rem;
         margin: 0.2rem 0;
 
-        @media (max-width: 600px) {
-          font-size: 0.9rem;
-        }
+        @media (max-width: 1024px) { font-size: 0.95rem; }
+        @media (max-width: 768px) { font-size: 0.9rem; }
+        @media (max-width: 480px) { font-size: 0.85rem; }
+        @media (max-width: 360px) { font-size: 0.8rem; }
       }
 
       .duration {
-        font-size: 0.85rem;
-        // color: #6b7280;
+        font-size: 0.9rem;
+        margin: 0;
 
-        @media (max-width: 600px) {
-          font-size: 0.8rem;
-        }
+        @media (max-width: 1024px) { font-size: 0.85rem; }
+        @media (max-width: 768px) { font-size: 0.8rem; }
+        @media (max-width: 480px) { font-size: 0.75rem; }
+        @media (max-width: 360px) { font-size: 0.7rem; }
       }
 
       .cert-link {
         font-size: 0.95rem;
         font-weight: 500;
-        // color: #1976d2;
         text-decoration: none;
 
-        &:hover {
-          text-decoration: underline;
-        }
+        &:hover { text-decoration: underline; }
+
+        @media (max-width: 1024px) { font-size: 0.9rem; }
+        @media (max-width: 768px) { font-size: 0.85rem; }
+        @media (max-width: 480px) { font-size: 0.8rem; }
+        @media (max-width: 360px) { font-size: 0.75rem; }
       }
     }
-  }
-}
-
-/* Responsive tweaks */
-@media (max-width: 480px) {
-  .grid-container {
-    gap: 0.5rem;
-  }
-
-  .edu-item img,
-  .cert-item img {
-    width: 35px;
-    height: 35px;
-  }
-
-  h1.section-title {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .edu-item img,
-  .cert-item img {
-    width: 30px;
-    height: 30px;
-  }
-
-  h1.section-title {
-    font-size: 1.6rem;
   }
 }

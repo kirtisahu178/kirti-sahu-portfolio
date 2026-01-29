@@ -20,9 +20,9 @@ export class ProjectsComponent {
       isConfidential: false
     },
     {
-      title: 'Kirti Sahu Portfolio',
-      description: 'Developed for the Chhattisgarh Government to monitor and manage complaints effectively. Used by CEO, Secretaries, HoDs, DGP, DEOs, SPs, and Commissioners as a centralized platform.',
-      tech: 'Angular 18, Angular Material',
+      title: 'Portfolio',
+      description: 'A modern, responsive personal portfolio showcasing my projects, skills, and experience as a Software Developer, built with a modern UI and responsive design to highlight projects and technical expertise.',
+      tech: 'Angular, Angular Material',
       link: 'https://github.com/kirtisahu178',
       github: 'https://github.com/kirtisahu178',
       image: 'portfolio.png',
@@ -31,7 +31,7 @@ export class ProjectsComponent {
     {
       title: 'Complaint Monitoring System',
       description: 'Developed for the Chhattisgarh Government to monitor and manage complaints effectively. Used by CEO, Secretaries, HoDs, DGP, DEOs, SPs, and Commissioners as a centralized platform.',
-      tech: 'Angular 18, Angular Material, Node.js, Express.js, MariaDB',
+      tech: 'Angular, Angular Material, Node.js, Express.js, MariaDB',
       link: 'https://election.cg.gov.in/cmsapp',
       github: '', // No GitHub
       image: 'cms.png',
@@ -40,7 +40,7 @@ export class ProjectsComponent {
     {
       title: 'Polling Personnel Randomization System - Web',
       description: 'Developed for District Collectors in Chhattisgarh. Streamlines duty assignment for polling officers, ensuring fairness and transparency in elections.',
-      tech: 'Angular 18, Angular Material, Node.js, Express.js, MSSQL',
+      tech: 'Angular, Angular Material, Node.js, Express.js, MSSQL',
       link: 'https://election.cg.gov.in/pprs',
       github: '', // Not public
       image: 'pprs.png',
@@ -49,7 +49,7 @@ export class ProjectsComponent {
     {
       title: 'Mission Vatsalya Monitoring System',
       description: 'Developed for the Department of Women and Child Development to monitor and manage programs under Mission Vatsalya effectively.',
-      tech: 'Angular 13, Angular Material, Node.js, Express.js, MariaDB',
+      tech: 'Angular, Angular Material, Node.js, Express.js, MariaDB',
       link: 'https://missionvatsalya.cg.gov.in/#/main-site/home',
       github: '', // Confidential
       image: 'mvms.png',

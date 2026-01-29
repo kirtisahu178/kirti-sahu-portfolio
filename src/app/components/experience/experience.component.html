@@ -1,86 +1,67 @@
 <div class="experience-section">
   <h1 class="section-title">Experience</h1>
 
+  <p class="section-subtitle">
+    Instantly filter my experience by company, role, or technology — powered by Angular Signals.
+  </p>
+
+  <mat-form-field appearance="outline" class="experience-search-field custom-outline custom-field-height">
+    <mat-label>Search experiences</mat-label>
+    <input matInput placeholder="Angular, NIC, Node.js..." (input)="searchExp.set($any($event.target).value)" />
+  </mat-form-field>
+
+  <p class="search-meta">
+    Showing {{ filteredExperiences().length }} result(s)
+  </p>
+
+
   <div class="experience-grid">
-    <!-- Left: Experience List -->
-    <div class="exp-list">
-      @for (exp of experiences; track exp; let i = $index) {
-      <div class="exp-card" [ngClass]="{ even: i % 2 === 0, odd: i % 2 !== 0 }">
+    <div class="exp-left">
+      @for (exp of filteredExperiences(); track exp; let i = $index) {
+      <div class="experience-card" [ngClass]="{ even: i % 2 === 0, odd: i % 2 !== 0 }">
         <div class="exp-header">
-          <img [src]="exp.logo" alt="{{exp.company}}" class="company-logo" />
-          <div>
-            <h3>{{ exp.company }}</h3>
-            <p class="meta">{{ exp.type }} · {{ exp.duration }}</p>
-            <p class="location">{{ exp.location }}</p>
+          <img [src]="exp.logo" class="company-logo" alt="{{exp.company}}" />
+          <div class="company-details">
+            <h3 class="company-name">{{ exp.company }}</h3>
+            <!-- <p class="company-meta">{{ exp.type }} · {{ exp.duration }}</p> -->
+            <p class="company-meta">
+              {{ exp.startDate | date:'MMM yyyy' }} –
+              {{ exp.endDate ? (exp.endDate | date:'MMM yyyy') : 'Present' }} ·
+              {{ getDuration(exp.startDate, exp.endDate) }}
+            </p>
+
+            <p class="company-location">{{ exp.location }}</p>
           </div>
         </div>
         @for (role of exp.roles; track role) {
         <div class="role-detail">
-          <h4>{{ role.title }}</h4>
-          <p class="desc">{{ role.description }}</p>
-          <!-- <p class="skills">{{ role.skills }}</p> -->
+          <h4 class="role-title">{{ role.title }}</h4>
+          <p class="role-desc">{{ role.description }}</p>
         </div>
         }
       </div>
       }
     </div>
 
-    <!-- Right: Responsibilities + Tech Stack -->
-    <div class="exp-side">
-      <div class="side-card">
-        <h2>Key Responsibilities</h2>
-        <ul>
-          <li>Develop dynamic web applications using Angular and Node.js</li>
-          <li>Design and maintain RESTful APIs</li>
-          <li>Collaborate with NIC and Government departments</li>
-          <li>Manage MariaDB databases and optimize queries</li>
-          <li>Implement authentication and security modules</li>
+    <div class="exp-right">
+      <div class="responsibility-card">
+        <h3 class="res-title">Key Responsibilities</h3>
+        <ul class="res-list">
+          @for (item of responsibilities(); track item) {
+          <li>{{ item }}</li>
+          }
         </ul>
 
-        <h2>Technologies I Use</h2>
+        <h3 class="tech-title">Technologies I Use</h3>
         <div class="tech-tags">
+          @for (tech of techStack; track tech.name) {
           <mat-chip-set>
             <mat-chip>
-              <img matChipAvatar src="angular.png" alt="angular.png" />
-              Angular
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="nodejs.png" alt="nodejs.png" />
-              Node.js
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="expressjs.png" alt="expressjs.png" />
-              Express.js
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="mariadb.png" alt="mariadb.png" />
-              MariaDB
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="mysql.png" alt="mysql.png" />
-              MySQl
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="html5.png" alt="html5.png" />
-              HTML5
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="css3.png" alt="css3.png" />
-              CSS3
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="javascript.png" alt="javascript.png" />
-              JavaScript
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="typescript.png" alt="typescript.png" />
-              TypeScript
-            </mat-chip>
-            <mat-chip>
-              <img matChipAvatar src="material.png" alt="material.png" />
-              Angular Material
+              <img matChipAvatar [src]="tech.icon" [alt]="tech.name" />
+              {{ tech.name }}
             </mat-chip>
           </mat-chip-set>
+          }
         </div>
       </div>
     </div>

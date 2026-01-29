@@ -1,13 +1,17 @@
 .certificate-section {
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 16px;
-  height: 300px;
 
-
-  h1 {
+  /* Section Title */
+  h1.section-title {
     font-size: 3.5rem;
     font-weight: 800;
-    margin: 0;
+    margin: 0 0 2rem 0;
+
+    @media (max-width: 1024px) { font-size: 3rem; }
+    @media (max-width: 768px) { font-size: 2.5rem; margin-bottom: 1.5rem; }
+    @media (max-width: 480px) { font-size: 2rem; margin-bottom: 1rem; }
+    @media (max-width: 360px) { font-size: 1.8rem; }
   }
 
   .cert-item {
@@ -23,52 +27,47 @@
       border-radius: 6px;
       background: #fff;
       border: 1px solid #ddd;
+
+      @media (max-width: 480px) { width: 40px; height: 40px; }
+      @media (max-width: 360px) { width: 35px; height: 35px; }
     }
 
     .cert-details {
+      flex: 1;
 
       .cert-title {
         margin: 0;
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: 600;
+
+        @media (max-width: 1024px) { font-size: 1.1rem; }
+        @media (max-width: 768px) { font-size: 1rem; }
+        @media (max-width: 480px) { font-size: 0.95rem; }
+        @media (max-width: 360px) { font-size: 0.9rem; }
       }
 
       .cert-provider {
         font-size: 1rem;
-        color: #555;
-        margin-bottom: 0.4rem;
+        margin: 0.2rem 0;
+
+        @media (max-width: 1024px) { font-size: 0.95rem; }
+        @media (max-width: 768px) { font-size: 0.9rem; }
+        @media (max-width: 480px) { font-size: 0.85rem; }
+        @media (max-width: 360px) { font-size: 0.8rem; }
       }
 
       .cert-link {
         font-size: 0.95rem;
         font-weight: 500;
-        color: #1976d2;
         text-decoration: none;
 
-        &:hover {
-          text-decoration: underline;
-        }
+        &:hover { text-decoration: underline; }
+
+        @media (max-width: 1024px) { font-size: 0.9rem; }
+        @media (max-width: 768px) { font-size: 0.85rem; }
+        @media (max-width: 480px) { font-size: 0.8rem; }
+        @media (max-width: 360px) { font-size: 0.75rem; }
       }
     }
   }
-}
-
-/* for laptop */
-@media (max-width: 1024px) {
-  
-}
-
-/* for tablet */
-@media (max-width: 768px) {
-    
-}
-
-/* for mobile */
-@media (max-width: 480px) {
-    
-}
-
-/* for very small mobiles */
-@media (max-width: 360px) {
-    
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlurBgLayoutComponent } from './blur-bg-layout.component';
+import { ContactComponent } from './contact.component';
 
-describe('BlurBgLayoutComponent', () => {
-  let component: BlurBgLayoutComponent;
-  let fixture: ComponentFixture<BlurBgLayoutComponent>;
+describe('ContactComponent', () => {
+  let component: ContactComponent;
+  let fixture: ComponentFixture<ContactComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlurBgLayoutComponent]
+      imports: [ContactComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BlurBgLayoutComponent);
+    fixture = TestBed.createComponent(ContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

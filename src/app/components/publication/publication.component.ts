@@ -11,6 +11,7 @@ import { MaterialModule } from '../../material/material.module';
 export class PublicationComponent {
 publications = [
     {
+      logo:'publication.jpg',
       title: 'A survey on cyber law in India: A weapon for controlling Cyber Crimes',
       journal: 'International Journal of Technology',
       year: '2020',
