@@ -57,6 +57,8 @@
         @media (max-width: 480px) { font-size: 0.7rem; }
         @media (max-width: 360px) { font-size: 0.65rem; }
       }
+
+      @media (max-width: 360px) { min-width: 60px; }
     }
   }
 
