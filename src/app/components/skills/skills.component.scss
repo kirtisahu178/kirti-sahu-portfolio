@@ -42,6 +42,13 @@
     @media (max-width: 360px) { font-size: 1.8rem; }
   }
 
+  .section-subtitle, .search-meta {
+    font-size: 1.1rem;
+    line-height: 1.6;
+
+    @media (max-width: 480px) { font-size: 1rem; }
+  }
+
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -78,7 +85,11 @@
       height: 32px;
       width: 32px;
       color: #fff;
+
+      @media (max-width: 360px) { font-size: 22px; }
     }
+
+      @media (max-width: 360px) { width: 40px; height: 40px; border-radius: 12px; }
   }
 
   .skill-card {
@@ -122,8 +133,8 @@
 
     @media (max-width: 1024px) { width: 260px; padding: 5px; }
     @media (max-width: 768px) { width: 290px; height: 180px;}
-    @media (max-width: 480px) { width: 280px; height: 180px; }
-    @media (max-width: 360px) { width: 220px; height: 180px; }
+    @media (max-width: 380px) { width: 250px; height: 160px; }
+    @media (max-width: 360px) { top: 22px; left: 22px; width: 220px; height: 180px; }
   }
 
   @media (max-width: 768px) { padding: 1.5rem; }

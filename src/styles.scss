@@ -96,7 +96,9 @@ $dark-tone-map: (
   .pub-doi,
   .pub-journal,
   .contact-intro,
-  .personal-note {
+  .personal-note,
+  .section-subtitle,
+  .search-meta {
     color: $color2;
   }
 
@@ -146,7 +148,7 @@ $dark-tone-map: (
   .company-meta,
   .company-location,
   .role-desc,
-  .res-list, .section-subtitle {
+  .res-list {
     color: var(--theme-primary-0);
   }
 
@@ -229,7 +231,8 @@ $dark-tone-map: (
   .toolbar-theme-section,
   .linkedin-icon,
   .github-icon,
-  .social-icon {
+  .fill-icon,
+  .moon-icon {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -243,7 +246,8 @@ $dark-tone-map: (
   .toolbar-theme-section,
   .linkedin-icon,
   .github-icon,
-  .social-icon {
+  .fill-icon,
+  .moon-icon {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);

@@ -108,6 +108,8 @@
           font-weight: 600;
           padding: 10px;
         }
+
+        @media (max-width: 360px) { gap: 0.5rem; }
       }
 
       @media (max-width: 768px) { padding: 1rem; }

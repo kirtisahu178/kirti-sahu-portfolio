@@ -58,26 +58,25 @@
       <span class="spacer"></span>
 
       <div class="icon-section">
-        <div class="toolbar-social-section">
+        <div class="icon-group">
           <a href="https://linkedin.com/in/kirti-sahu-355a681b7" target="_blank" rel="noopener" mat-icon-button
             class="social-icon-btn">
-            <img src="linkedin.png" alt="LinkedIn" class="social-icon" />
+            <img src="linkedin.png" alt="LinkedIn" class="linkedin-icon" />
           </a>
 
           <a href="https://github.com/kirtisahu178" target="_blank" rel="noopener" mat-icon-button
             class="social-icon-btn">
-            <img src="github.png" alt="GitHub" class="social-icon" />
+            <img src="github.png" alt="GitHub" class="github-icon" />
           </a>
-        </div>
 
-        <div class="toolbar-theme-section">
-          <button mat-icon-button (click)="toggleDarkMode()">
+          <button mat-icon-button (click)="toggleDarkMode()" class="social-icon-btn">
             <mat-icon [matTooltip]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'" class="moon-icon">
               {{ isDarkMode ? 'light_mode' : 'dark_mode' }}
             </mat-icon>
           </button>
-          <button mat-icon-button [mat-menu-trigger-for]="selectTheme">
-            <mat-icon matTooltip="Select a theme">format_color_fill</mat-icon>
+
+          <button mat-icon-button [mat-menu-trigger-for]="selectTheme" class="social-icon-btn">
+            <mat-icon matTooltip="Select a theme" class="fill-icon">format_color_fill</mat-icon>
           </button>
         </div>
       </div>
@@ -164,7 +163,7 @@
 
     <div class="main-content">
       <!-- <div id="particle-layer"></div> -->
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </div>
 
     <footer>
@@ -173,12 +172,7 @@
   </div>
 </app-layered-bg-layout>
 
-<ngx-ui-loader
-        fgsType="three-strings"
-        fgsColor="#fff" 
-        overlayColor="#2232884f" 
-        [hasProgressBar]="false"
-        text="Please wait..." 
-        textColor="#fff">
-        <div ngxUiLoaderBlurred [blur]="2"></div>
+<ngx-ui-loader fgsType="three-strings" fgsColor="#fff" overlayColor="#2232884f" [hasProgressBar]="false"
+  text="Please wait..." textColor="#fff">
+  <div ngxUiLoaderBlurred [blur]="2"></div>
 </ngx-ui-loader>

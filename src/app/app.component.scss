@@ -107,7 +107,7 @@
     display: flex;
     align-items: center;
 
-    .toolbar-social-section {
+    .icon-group {
       display: flex;
       align-items: center;
 
@@ -115,48 +115,27 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: 5px;
+        margin: 0 2px;
 
-        .social-icon {
-          width: 22px;
-          height: 22px;
+        .linkedin-icon,
+        .github-icon,
+        .moon-icon,
+        .fill-icon {
           padding: 7px;
           border-radius: 50px;
-        }
 
-        @media (max-width: 1024px) {
-          width: 36px;
-          height: 36px;
+          @media (max-width: 360px) {
+            padding: 5px;
+          }
         }
 
         @media (max-width: 360px) {
-          width: 30px;
-          height: 30px;
+          margin: 0;
         }
       }
 
       @media (max-width: 480px) {
         transform: scale(0.85);
-        margin-right: -12px;
-      }
-    }
-
-    .toolbar-theme-section {
-      display: flex;
-      align-items: center;
-      border-radius: 50px;
-
-      @media (max-width: 480px) {
-        transform: scale(0.85);
-
-        button {
-          width: 35px;
-          height: 35px;
-        }
-
-        .mat-icon {
-          font-size: 20px;
-        }
       }
     }
   }
@@ -168,6 +147,10 @@
 
   @media (max-width: 1024px) {
     padding: 0 1rem;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0 0.5rem;
   }
 }
 

@@ -51,23 +51,10 @@
     font-weight: 800;
     margin: 0 0 2rem 0;
 
-    @media (max-width: 1024px) {
-      font-size: 3rem;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    @media (max-width: 480px) {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    @media (max-width: 360px) {
-      font-size: 1.8rem;
-    }
+    @media (max-width: 1024px) { font-size: 3rem; }
+    @media (max-width: 768px) { font-size: 2.5rem; margin-bottom: 1.5rem; }
+    @media (max-width: 480px) { font-size: 2rem; margin-bottom: 1rem; }
+    @media (max-width: 360px) { font-size: 1.8rem; }
   }
 
   .experience-grid {
@@ -188,6 +175,7 @@
           margin-bottom: 0.4rem;
           text-align: justify;
           font-size: 1rem;
+          line-height: 1.6;
 
           @media (max-width: 768px) {
             font-size: 0.95rem;
